@@ -1,85 +1,85 @@
-¾©¶«¶àºÏÒ»Ç©µ½½Å±¾
+äº¬ä¸œå¤šåˆä¸€ç­¾åˆ°è„šæœ¬
 
-¸üĞÂÊ±¼ä: 2021.06.17 23:20 v2.0.5
-ÓĞĞ§½Ó¿Ú: 30+
-½Å±¾¼æÈİ: QuantumultX, Surge, Loon, JSBox, Node.js
-µç±¨ÆµµÀ: @NobyDa 
-ÎÊÌâ·´À¡: @NobyDa_bot 
-Èç¹û×ªÔØ: Çë×¢Ã÷³ö´¦
-
-*************************
-¡¾ JSbox, Node.js ËµÃ÷ ¡¿ :
-*************************
-
-¿ªÆô×¥°üappºó, Safariä¯ÀÀÆ÷µÇÂ¼ https://bean.m.jd.com/bean/signIndex.action µã»÷Ç©µ½²¢ÇÒ³öÏÖÇ©µ½ÈÕÀúºó, ·µ»Ø×¥°üappËÑË÷¹Ø¼ü×Ö functionId=signBean ¸´ÖÆÇëÇóÍ·CookieÌîÈëÒÔÏÂKey´¦µÄµ¥ÒıºÅÄÚ¼´¿É */
-
-var Key = ''; //µ¥ÒıºÅÄÚ×ÔĞĞÌîĞ´Äú×¥È¡µÄCookie
-
-var DualKey = ''; //ÈçĞèË«ÕËºÅÇ©µ½,´Ë´¦µ¥ÒıºÅÄÚÌîĞ´×¥È¡µÄ"ÕËºÅ2"Cookie, ·ñÔòÇëÎğÌîĞ´
-
-var OtherKey = ''; //µÚÈıÕËºÅ»òÒÔÉÏµÄCookie json´®Êı¾İ, ÒÔÏÂÑùÀıÎªµÚÈıµÚËÄÕËºÅ£ºvar OtherKey = '[{"cookie":"pt_key=xxxxxx;pt_pin=yyyyyy"},{"cookie":"pt_key=xxxxxx;pt_pin=yyyyyy"}]'
-
-/* ×¢1: ÒÔÉÏÑ¡Ïî½öÕë¶ÔÓÚJsBox»òNode.js, Èç¹ûÊ¹ÓÃQX,Surge,Loon, ÇëÊ¹ÓÃ½Å±¾»ñÈ¡Cookie.
-   ×¢2: Ë«ÕËºÅÓÃ»§×¥È¡"ÕËºÅ1"Cookieºó, ÇëÎğµã»÷ÍË³öÕËºÅ(¿ÉÄÜ»áµ¼ÖÂCookieÊ§Ğ§), ĞèÇå³ıä¯ÀÀÆ÷×ÊÁÏ»ò¸ü»»ä¯ÀÀÆ÷µÇÂ¼"ÕËºÅ2"×¥È¡.
-   ×¢3: Èç¹û¸´ÖÆµÄCookie¿ªÍ·Îª"Cookie: "Çë°ÑËüÉ¾³ıºóÌîÈë.
-   ×¢4: Èç¹ûÊ¹ÓÃQX,Surge,Loon²¢»ñÈ¡Cookieºó, ÔÙÖØ¸´ÌîĞ´ÒÔÉÏÑ¡Ïî, ÔòÇ©µ½ÓÅÏÈ¶ÁÈ¡ÒÔÉÏCookie.
-   ×¢5: Èç¹ûÊ¹ÓÃNode.js, Ğè×ÔĞĞ°²×°'request'Ä£¿é. Àı: npm install request -g
-   ×¢6: Node.js»òJSbox»·¾³ÏÂÒÑÅäÖÃÊı¾İ³Ö¾Ã»¯, ÌîĞ´CookieÔËĞĞÒ»´Îºó, ºóĞø¸üĞÂ½Å±¾ÎŞĞèÔÙ´ÎÌîĞ´, ´ıCookieÊ§Ğ§ºóÖØĞÂ×¥È¡ÌîĞ´¼´¿É.
+æ›´æ–°æ—¶é—´: 2021.06.17 23:20 v2.0.5
+æœ‰æ•ˆæ¥å£: 30+
+è„šæœ¬å…¼å®¹: QuantumultX, Surge, Loon, JSBox, Node.js
+ç”µæŠ¥é¢‘é“: @NobyDa 
+é—®é¢˜åé¦ˆ: @NobyDa_bot 
+å¦‚æœè½¬è½½: è¯·æ³¨æ˜å‡ºå¤„
 
 *************************
-¡¾ QX, Surge, Loon ËµÃ÷ ¡¿ :
+ã€ JSbox, Node.js è¯´æ˜ ã€‘ :
 *************************
 
-³õ´ÎÊ¹ÓÃÊ±, appÅäÖÃÎÄ¼şÌí¼Ó½Å±¾ÅäÖÃ,²¢ÆôÓÃMitmºó, Safariä¯ÀÀÆ÷´ò¿ªµÇÂ¼ https://bean.m.jd.com/bean/signIndex.action ,µã»÷Ç©µ½²¢ÇÒ³öÏÖÇ©µ½ÈÕÀúºó, Èç¹ûÍ¨Öª»ñµÃcookie³É¹¦, Ôò¿ÉÒÔÊ¹ÓÃ´ËÇ©µ½½Å±¾¡£ ×¢: ÇëÎğÔÚ¾©¶«APPÄÚ»ñÈ¡!!!
+å¼€å¯æŠ“åŒ…appå, Safariæµè§ˆå™¨ç™»å½• https://bean.m.jd.com/bean/signIndex.action ç‚¹å‡»ç­¾åˆ°å¹¶ä¸”å‡ºç°ç­¾åˆ°æ—¥å†å, è¿”å›æŠ“åŒ…appæœç´¢å…³é”®å­— functionId=signBean å¤åˆ¶è¯·æ±‚å¤´Cookieå¡«å…¥ä»¥ä¸‹Keyå¤„çš„å•å¼•å·å†…å³å¯ */
 
-ÓÉÓÚcookieµÄÓĞĞ§ĞÔ(¾­²âÊÔÍøÒ³CookieÓĞĞ§ÖÜÆÚ×î³¤31Ìì)£¬Èç¹û½Å±¾ºóĞøµ¯³öcookieÎŞĞ§µÄÍ¨Öª£¬ÔòĞèÒªÖØ¸´ÉÏÊö²½Öè¡£ 
-Ç©µ½½Å±¾½«ÔÚÃ¿ÌìµÄÁè³¿0:05Ö´ĞĞ, Äú¿ÉÒÔĞŞ¸ÄÖ´ĞĞÊ±¼ä¡£ Òò²¿·Ö½Ó¿Ú¾©¶¹ÏŞÁ¿ÁìÈ¡, ½¨Òéµ÷ÕûÎªÁè³¿Ç©µ½¡£
+var Key = ''; //å•å¼•å·å†…è‡ªè¡Œå¡«å†™æ‚¨æŠ“å–çš„Cookie
 
-BoxJs»òQX Gallery¶©ÔÄµØÖ·: https://raw.githubusercontent.com/NobyDa/Script/master/NobyDa_BoxJs.json
+var DualKey = ''; //å¦‚éœ€åŒè´¦å·ç­¾åˆ°,æ­¤å¤„å•å¼•å·å†…å¡«å†™æŠ“å–çš„"è´¦å·2"Cookie, å¦åˆ™è¯·å‹¿å¡«å†™
+
+var OtherKey = ''; //ç¬¬ä¸‰è´¦å·æˆ–ä»¥ä¸Šçš„Cookie jsonä¸²æ•°æ®, ä»¥ä¸‹æ ·ä¾‹ä¸ºç¬¬ä¸‰ç¬¬å››è´¦å·ï¼švar OtherKey = '[{"cookie":"pt_key=xxxxxx;pt_pin=yyyyyy"},{"cookie":"pt_key=xxxxxx;pt_pin=yyyyyy"}]'
+
+/* æ³¨1: ä»¥ä¸Šé€‰é¡¹ä»…é’ˆå¯¹äºJsBoxæˆ–Node.js, å¦‚æœä½¿ç”¨QX,Surge,Loon, è¯·ä½¿ç”¨è„šæœ¬è·å–Cookie.
+   æ³¨2: åŒè´¦å·ç”¨æˆ·æŠ“å–"è´¦å·1"Cookieå, è¯·å‹¿ç‚¹å‡»é€€å‡ºè´¦å·(å¯èƒ½ä¼šå¯¼è‡´Cookieå¤±æ•ˆ), éœ€æ¸…é™¤æµè§ˆå™¨èµ„æ–™æˆ–æ›´æ¢æµè§ˆå™¨ç™»å½•"è´¦å·2"æŠ“å–.
+   æ³¨3: å¦‚æœå¤åˆ¶çš„Cookieå¼€å¤´ä¸º"Cookie: "è¯·æŠŠå®ƒåˆ é™¤åå¡«å…¥.
+   æ³¨4: å¦‚æœä½¿ç”¨QX,Surge,Loonå¹¶è·å–Cookieå, å†é‡å¤å¡«å†™ä»¥ä¸Šé€‰é¡¹, åˆ™ç­¾åˆ°ä¼˜å…ˆè¯»å–ä»¥ä¸ŠCookie.
+   æ³¨5: å¦‚æœä½¿ç”¨Node.js, éœ€è‡ªè¡Œå®‰è£…'request'æ¨¡å—. ä¾‹: npm install request -g
+   æ³¨6: Node.jsæˆ–JSboxç¯å¢ƒä¸‹å·²é…ç½®æ•°æ®æŒä¹…åŒ–, å¡«å†™Cookieè¿è¡Œä¸€æ¬¡å, åç»­æ›´æ–°è„šæœ¬æ— éœ€å†æ¬¡å¡«å†™, å¾…Cookieå¤±æ•ˆåé‡æ–°æŠ“å–å¡«å†™å³å¯.
 
 *************************
-¡¾ ÅäÖÃ¶à¾©¶«ÕËºÅÇ©µ½ËµÃ÷ ¡¿ : 
+ã€ QX, Surge, Loon è¯´æ˜ ã€‘ :
 *************************
 
-ÕıÈ·ÅäÖÃQX¡¢Surge¡¢Loonºó, ²¢Ê¹ÓÃ´Ë½Å±¾»ñÈ¡"ÕËºÅ1"Cookie³É¹¦ºó, ÇëÎğµã»÷ÍË³öÕËºÅ(¿ÉÄÜ»áµ¼ÖÂCookieÊ§Ğ§), ĞèÇå³ıä¯ÀÀÆ÷×ÊÁÏ»ò¸ü»»ä¯ÀÀÆ÷µÇÂ¼"ÕËºÅ2"»ñÈ¡¼´¿É; ÕËºÅ3»òÒÔÉÏÍ¬Àí.
-×¢: ÈçĞèÇå³ıËùÓĞCookie, Äú¿É¿ªÆô½Å±¾ÄÚ"DeleteCookie"Ñ¡Ïî (µÚ96ĞĞ)
+åˆæ¬¡ä½¿ç”¨æ—¶, appé…ç½®æ–‡ä»¶æ·»åŠ è„šæœ¬é…ç½®,å¹¶å¯ç”¨Mitmå, Safariæµè§ˆå™¨æ‰“å¼€ç™»å½• https://bean.m.jd.com/bean/signIndex.action ,ç‚¹å‡»ç­¾åˆ°å¹¶ä¸”å‡ºç°ç­¾åˆ°æ—¥å†å, å¦‚æœé€šçŸ¥è·å¾—cookieæˆåŠŸ, åˆ™å¯ä»¥ä½¿ç”¨æ­¤ç­¾åˆ°è„šæœ¬ã€‚ æ³¨: è¯·å‹¿åœ¨äº¬ä¸œAPPå†…è·å–!!!
+
+ç”±äºcookieçš„æœ‰æ•ˆæ€§(ç»æµ‹è¯•ç½‘é¡µCookieæœ‰æ•ˆå‘¨æœŸæœ€é•¿31å¤©)ï¼Œå¦‚æœè„šæœ¬åç»­å¼¹å‡ºcookieæ— æ•ˆçš„é€šçŸ¥ï¼Œåˆ™éœ€è¦é‡å¤ä¸Šè¿°æ­¥éª¤ã€‚ 
+1ç­¾åˆ°è„šæœ¬å°†åœ¨æ¯å¤©çš„å‡Œæ™¨0:05æ‰§è¡Œ, æ‚¨å¯ä»¥ä¿®æ”¹æ‰§è¡Œæ—¶é—´ã€‚ å› éƒ¨åˆ†æ¥å£äº¬è±†é™é‡é¢†å–, å»ºè®®è°ƒæ•´ä¸ºå‡Œæ™¨ç­¾åˆ°ã€‚
+
+BoxJsæˆ–QX Galleryè®¢é˜…åœ°å€: https://raw.githubusercontent.com/NobyDa/Script/master/NobyDa_BoxJs.json
 
 *************************
-¡¾Surge 4.2+ ½Å±¾ÅäÖÃ¡¿:
+ã€ é…ç½®å¤šäº¬ä¸œè´¦å·ç­¾åˆ°è¯´æ˜ ã€‘ : 
+*************************
+
+æ­£ç¡®é…ç½®QXã€Surgeã€Loonå, å¹¶ä½¿ç”¨æ­¤è„šæœ¬è·å–"è´¦å·1"CookieæˆåŠŸå, è¯·å‹¿ç‚¹å‡»é€€å‡ºè´¦å·(å¯èƒ½ä¼šå¯¼è‡´Cookieå¤±æ•ˆ), éœ€æ¸…é™¤æµè§ˆå™¨èµ„æ–™æˆ–æ›´æ¢æµè§ˆå™¨ç™»å½•"è´¦å·2"è·å–å³å¯; è´¦å·3æˆ–ä»¥ä¸ŠåŒç†.
+æ³¨: å¦‚éœ€æ¸…é™¤æ‰€æœ‰Cookie, æ‚¨å¯å¼€å¯è„šæœ¬å†…"DeleteCookie"é€‰é¡¹ (ç¬¬96è¡Œ)
+
+*************************
+ã€Surge 4.2+ è„šæœ¬é…ç½®ã€‘:
 *************************
 
 [Script]
-¾©¶«¶àºÏÒ»Ç©µ½ = type=cron,cronexp=5 0 * * *,wake-system=1,timeout=60,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js
+äº¬ä¸œå¤šåˆä¸€ç­¾åˆ° = type=cron,cronexp=5 0 * * *,wake-system=1,timeout=60,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js
 
-»ñÈ¡¾©¶«Cookie = type=http-request,pattern=https:\/\/api\.m\.jd\.com\/client\.action.*functionId=signBean,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js
+è·å–äº¬ä¸œCookie = type=http-request,pattern=https:\/\/api\.m\.jd\.com\/client\.action.*functionId=signBean,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js
 
 [MITM]
 hostname = api.m.jd.com
 
 *************************
-¡¾Loon 2.1+ ½Å±¾ÅäÖÃ¡¿:
+ã€Loon 2.1+ è„šæœ¬é…ç½®ã€‘:
 *************************
 
 [Script]
-cron "5 0 * * *" tag=¾©¶«¶àºÏÒ»Ç©µ½, script-path=https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js
+cron "5 0 * * *" tag=äº¬ä¸œå¤šåˆä¸€ç­¾åˆ°, script-path=https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js
 
-http-request https:\/\/api\.m\.jd\.com\/client\.action.*functionId=signBean tag=»ñÈ¡¾©¶«Cookie, script-path=https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js
+http-request https:\/\/api\.m\.jd\.com\/client\.action.*functionId=signBean tag=è·å–äº¬ä¸œCookie, script-path=https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js
 
 [MITM]
 hostname = api.m.jd.com
 
 *************************
-¡¾ QX 1.0.10+ ½Å±¾ÅäÖÃ ¡¿ :
+ã€ QX 1.0.10+ è„šæœ¬é…ç½® ã€‘ :
 *************************
 
 [task_local]
-# ¾©¶«¶àºÏÒ»Ç©µ½
-# ×¢Òâ´ËÎªÔ¶³ÌÂ·¾¶, µÍ°æ±¾ÓÃ»§Çë×ÔĞĞµ÷ÕûÎª±¾µØÂ·¾¶.
-5 0 * * * https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js, tag=¾©¶«¶àºÏÒ»Ç©µ½, img-url=https://raw.githubusercontent.com/NobyDa/mini/master/Color/jd.png,enabled=true
+# äº¬ä¸œå¤šåˆä¸€ç­¾åˆ°
+# æ³¨æ„æ­¤ä¸ºè¿œç¨‹è·¯å¾„, ä½ç‰ˆæœ¬ç”¨æˆ·è¯·è‡ªè¡Œè°ƒæ•´ä¸ºæœ¬åœ°è·¯å¾„.
+5 0 * * * https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js, tag=äº¬ä¸œå¤šåˆä¸€ç­¾åˆ°, img-url=https://raw.githubusercontent.com/NobyDa/mini/master/Color/jd.png,enabled=true
 
 [rewrite_local]
-# »ñÈ¡¾©¶«Cookie. 
-# ×¢Òâ´ËÎªÔ¶³ÌÂ·¾¶, µÍ°æ±¾ÓÃ»§Çë×ÔĞĞµ÷ÕûÎª±¾µØÂ·¾¶.
+# è·å–äº¬ä¸œCookie. 
+# æ³¨æ„æ­¤ä¸ºè¿œç¨‹è·¯å¾„, ä½ç‰ˆæœ¬ç”¨æˆ·è¯·è‡ªè¡Œè°ƒæ•´ä¸ºæœ¬åœ°è·¯å¾„.
 https:\/\/api\.m\.jd\.com\/client\.action.*functionId=signBean url script-request-header https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js
 
 [mitm]
@@ -87,17 +87,17 @@ hostname = api.m.jd.com
 
 *************************/
 
-var LogDetails = false; //ÊÇ·ñ¿ªÆôÏìÓ¦ÈÕÖ¾, trueÔò¿ªÆô
+var LogDetails = false; //æ˜¯å¦å¼€å¯å“åº”æ—¥å¿—, trueåˆ™å¼€å¯
 
-var stop = '1000'; //×Ô¶¨ÒåÑÓ³ÙÇ©µ½, µ¥Î»ºÁÃë. Ä¬ÈÏ·ÖÅú²¢·¢ÎŞÑÓ³Ù; ¸Ã²ÎÊı½ÓÊÜËæ»ú»òÖ¸¶¨ÑÓ³Ù(Àı: '2000'Ôò±íÊ¾ÑÓ³Ù2Ãë; '2000-5000'Ôò±íÊ¾ÑÓ³Ù×îĞ¡2Ãë,×î´ó5ÃëÄÚµÄËæ»úÑÓ³Ù), ÈçÌîÈëÑÓ³ÙÔòÇĞ»»Ë³ĞòÇ©µ½(ºÄÊ±½Ï³¤), SurgeÓÃ»§Çë×¢ÒâÔÚSurgeUI½çÃæµ÷Õû½Å±¾³¬Ê±; ×¢: ¸Ã²ÎÊıNode.js»òJSbox»·¾³ÏÂÒÑÅäÖÃÊı¾İ³Ö¾Ã»¯, Áô¿Õ(var stop = '')¼´¿ÉÇå³ı.
+var stop = '1000'; //è‡ªå®šä¹‰å»¶è¿Ÿç­¾åˆ°, å•ä½æ¯«ç§’. é»˜è®¤åˆ†æ‰¹å¹¶å‘æ— å»¶è¿Ÿ; è¯¥å‚æ•°æ¥å—éšæœºæˆ–æŒ‡å®šå»¶è¿Ÿ(ä¾‹: '2000'åˆ™è¡¨ç¤ºå»¶è¿Ÿ2ç§’; '2000-5000'åˆ™è¡¨ç¤ºå»¶è¿Ÿæœ€å°2ç§’,æœ€å¤§5ç§’å†…çš„éšæœºå»¶è¿Ÿ), å¦‚å¡«å…¥å»¶è¿Ÿåˆ™åˆ‡æ¢é¡ºåºç­¾åˆ°(è€—æ—¶è¾ƒé•¿), Surgeç”¨æˆ·è¯·æ³¨æ„åœ¨SurgeUIç•Œé¢è°ƒæ•´è„šæœ¬è¶…æ—¶; æ³¨: è¯¥å‚æ•°Node.jsæˆ–JSboxç¯å¢ƒä¸‹å·²é…ç½®æ•°æ®æŒä¹…åŒ–, ç•™ç©º(var stop = '')å³å¯æ¸…é™¤.
 
-var DeleteCookie = false; //ÊÇ·ñÇå³ıËùÓĞCookie, trueÔò¿ªÆô.
+var DeleteCookie = false; //æ˜¯å¦æ¸…é™¤æ‰€æœ‰Cookie, trueåˆ™å¼€å¯.
 
-var boxdis = true; //ÊÇ·ñ¿ªÆô×Ô¶¯½ûÓÃ, falseÔò¹Ø±Õ. ½Å±¾ÔËĞĞ±ÀÀ£Ê±(ÈçVPN¶ÏÁ¬), ÏÂ´ÎÔËĞĞÊ±½«×Ô¶¯½ûÓÃÏà¹Ø±ÀÀ£½Ó¿Ú(½ö²¿·Ö½Ó¿ÚÆôÓÃ), ±ÀÀ£Ê±¿ÉÄÜ»áÎó½ûÓÃÕı³£½Ó¿Ú. (¸ÃÑ¡Ïî½öÊÊÓÃÓÚQX,Surge,Loon)
+var boxdis = true; //æ˜¯å¦å¼€å¯è‡ªåŠ¨ç¦ç”¨, falseåˆ™å…³é—­. è„šæœ¬è¿è¡Œå´©æºƒæ—¶(å¦‚VPNæ–­è¿), ä¸‹æ¬¡è¿è¡Œæ—¶å°†è‡ªåŠ¨ç¦ç”¨ç›¸å…³å´©æºƒæ¥å£(ä»…éƒ¨åˆ†æ¥å£å¯ç”¨), å´©æºƒæ—¶å¯èƒ½ä¼šè¯¯ç¦ç”¨æ­£å¸¸æ¥å£. (è¯¥é€‰é¡¹ä»…é€‚ç”¨äºQX,Surge,Loon)
 
-var ReDis = false; //ÊÇ·ñÒÆ³ıËùÓĞ½ûÓÃÁĞ±í, trueÔò¿ªÆô. ÊÊÓÃÓÚ´¥·¢×Ô¶¯½ûÓÃºó, ĞèÒªÔÙ´ÎÆôÓÃ½Ó¿ÚµÄÇé¿ö. (¸ÃÑ¡Ïî½öÊÊÓÃÓÚQX,Surge,Loon)
+var ReDis = false; //æ˜¯å¦ç§»é™¤æ‰€æœ‰ç¦ç”¨åˆ—è¡¨, trueåˆ™å¼€å¯. é€‚ç”¨äºè§¦å‘è‡ªåŠ¨ç¦ç”¨å, éœ€è¦å†æ¬¡å¯ç”¨æ¥å£çš„æƒ…å†µ. (è¯¥é€‰é¡¹ä»…é€‚ç”¨äºQX,Surge,Loon)
 
-var out = 0; //½Ó¿Ú³¬Ê±ÍË³ö, ÓÃÓÚ¿ÉÄÜ·¢ÉúµÄÍøÂç²»ÎÈ¶¨, 0Ôò¹Ø±Õ. ÈçQXÈÕÖ¾³öÏÖ´óÁ¿"JS Context timeout"ºó½Å±¾ÖĞ¶ÏÊ±, ½¨ÒéÌîĞ´6000
+var out = 0; //æ¥å£è¶…æ—¶é€€å‡º, ç”¨äºå¯èƒ½å‘ç”Ÿçš„ç½‘ç»œä¸ç¨³å®š, 0åˆ™å…³é—­. å¦‚QXæ—¥å¿—å‡ºç°å¤§é‡"JS Context timeout"åè„šæœ¬ä¸­æ–­æ—¶, å»ºè®®å¡«å†™6000
 
 var $nobyda = nobyda();
 
@@ -106,107 +106,107 @@ async function all() {
   switch (stop) {
     case 0:
       await Promise.all([
-        JingDongBean(stop), //¾©¶«¾©¶¹
-        JingDongStore(stop), //¾©¶«³¬ÊĞ
-        JingRongSteel(stop), //½ğÈÚ¸ÖéG
-        JingDongTurn(stop), //¾©¶«×ªÅÌ
-        JDFlashSale(stop), //¾©¶«ÉÁ¹º
-        JingDongCash(stop), //¾©¶«ÏÖ½ğºì°ü
-        JDMagicCube(stop, 2), //¾©¶«Ğ¡Ä§·½
-        JingDongSubsidy(stop), //¾©¶«½ğÌù
-        JingDongGetCash(stop), //¾©¶«ÁìÏÖ½ğ
-        JingDongShake(stop), //¾©¶«Ò¡Ò»Ò¡
-        JDSecKilling(stop), //¾©¶«ÃëÉ±
-        JingDongBuyCar(stop, '435c9611622e4135b436b9d73351be10'), //¾©¶«Æû³µ
-        // JingRongDoll(stop, 'JRDoll', '¾©¶«½ğÈÚ-Ç©Ò¼', '4D25A6F482'),
-        // JingRongDoll(stop, 'JRThreeDoll', '¾©¶«½ğÈÚ-Ç©Èş', '69F5EC743C'),
-        JingRongDoll(stop, 'JRFourDoll', '¾©¶«½ğÈÚ-Ç©ËÁ', '30C4F86264'),
-        // JingRongDoll(stop, 'JRFiveDoll', '¾©¶«½ğÈÚ-Ç©Îé', '1D06AA3B0F')
+        JingDongBean(stop), //äº¬ä¸œäº¬è±†
+        JingDongStore(stop), //äº¬ä¸œè¶…å¸‚
+        JingRongSteel(stop), //é‡‘èé’¢é•š
+        JingDongTurn(stop), //äº¬ä¸œè½¬ç›˜
+        JDFlashSale(stop), //äº¬ä¸œé—ªè´­
+        JingDongCash(stop), //äº¬ä¸œç°é‡‘çº¢åŒ…
+        JDMagicCube(stop, 2), //äº¬ä¸œå°é­”æ–¹
+        JingDongSubsidy(stop), //äº¬ä¸œé‡‘è´´
+        JingDongGetCash(stop), //äº¬ä¸œé¢†ç°é‡‘
+        JingDongShake(stop), //äº¬ä¸œæ‘‡ä¸€æ‘‡
+        JDSecKilling(stop), //äº¬ä¸œç§’æ€
+        JingDongBuyCar(stop, '435c9611622e4135b436b9d73351be10'), //äº¬ä¸œæ±½è½¦
+        // JingRongDoll(stop, 'JRDoll', 'äº¬ä¸œé‡‘è-ç­¾å£¹', '4D25A6F482'),
+        // JingRongDoll(stop, 'JRThreeDoll', 'äº¬ä¸œé‡‘è-ç­¾å', '69F5EC743C'),
+        JingRongDoll(stop, 'JRFourDoll', 'äº¬ä¸œé‡‘è-ç­¾è‚†', '30C4F86264'),
+        // JingRongDoll(stop, 'JRFiveDoll', 'äº¬ä¸œé‡‘è-ç­¾ä¼', '1D06AA3B0F')
       ]);
       await Promise.all([
-        JDUserSignPre(stop, 'JDUndies', '¾©¶«ÉÌ³Ç-ÄÚÒÂ', '4PgpL1xqPSW1sVXCJ3xopDbB1f69'), //¾©¶«ÄÚÒÂ¹İ
-        JDUserSignPre(stop, 'JDCard', '¾©¶«ÉÌ³Ç-¿¨°ü', '7e5fRnma6RBATV9wNrGXJwihzcD'), //¾©¶«¿¨°ü
-        // JDUserSignPre(stop, 'JDCustomized', '¾©¶«ÉÌ³Ç-¶¨ÖÆ', '2BJK5RBdvc3hdddZDS1Svd5Esj3R'), //¾©¶«¶¨ÖÆ
-        JDUserSignPre(stop, 'JDaccompany', '¾©¶«ÉÌ³Ç-Åã°é', 'kPM3Xedz1PBiGQjY4ZYGmeVvrts'), //¾©¶«Åã°é
-        JDUserSignPre(stop, 'JDShoes', '¾©¶«ÉÌ³Ç-Ğ¬Ñ¥', '4RXyb1W4Y986LJW8ToqMK14BdTD'), //¾©¶«Ğ¬Ñ¥
-        JDUserSignPre(stop, 'JDChild', '¾©¶«ÉÌ³Ç-Í¯×°', '3Af6mZNcf5m795T8dtDVfDwWVNhJ'), //¾©¶«Í¯×°¹İ
-        JDUserSignPre(stop, 'JDBaby', '¾©¶«ÉÌ³Ç-Ä¸Ó¤', '3BbAVGQPDd6vTyHYjmAutXrKAos6'), //¾©¶«Ä¸Ó¤¹İ
-        JDUserSignPre(stop, 'JD3C', '¾©¶«ÉÌ³Ç-ÊıÂë', '4SWjnZSCTHPYjE5T7j35rxxuMTb6'), //¾©¶«ÊıÂëµçÆ÷¹İ
-        JDUserSignPre(stop, 'JDWomen', '¾©¶«ÉÌ³Ç-Å®×°', 'DpSh7ma8JV7QAxSE2gJNro8Q2h9'), //¾©¶«Å®×°¹İ
-        JDUserSignPre(stop, 'JDBook', '¾©¶«ÉÌ³Ç-Í¼Êé', '3SC6rw5iBg66qrXPGmZMqFDwcyXi'), //¾©¶«Í¼Êé
-        JDUserSignPre(stop,'JDJiaDian','¾©¶«ÉÌ³Ç-Ğ¡¼Òµç¹İ','3uvPyw1pwHARGgndatCXddLNUxHw'), // ¾©¶«Ğ¡¼Òµç
-        JingRongDoll(stop, 'JTDouble', '¾©¶«½ğÌù-Ë«Ç©', '1DF13833F7'), //¾©¶«½ğÈÚ ½ğÌùË«Ç©
-        // JingRongDoll(stop, 'XJDouble', '½ğÈÚÏÖ½ğ-Ë«Ç©', 'F68B2C3E71', '', '', '', 'xianjin') //¾©¶«½ğÈÚ ÏÖ½ğË«Ç©
+        JDUserSignPre(stop, 'JDUndies', 'äº¬ä¸œå•†åŸ-å†…è¡£', '4PgpL1xqPSW1sVXCJ3xopDbB1f69'), //äº¬ä¸œå†…è¡£é¦†
+        JDUserSignPre(stop, 'JDCard', 'äº¬ä¸œå•†åŸ-å¡åŒ…', '7e5fRnma6RBATV9wNrGXJwihzcD'), //äº¬ä¸œå¡åŒ…
+        // JDUserSignPre(stop, 'JDCustomized', 'äº¬ä¸œå•†åŸ-å®šåˆ¶', '2BJK5RBdvc3hdddZDS1Svd5Esj3R'), //äº¬ä¸œå®šåˆ¶
+        JDUserSignPre(stop, 'JDaccompany', 'äº¬ä¸œå•†åŸ-é™ªä¼´', 'kPM3Xedz1PBiGQjY4ZYGmeVvrts'), //äº¬ä¸œé™ªä¼´
+        JDUserSignPre(stop, 'JDShoes', 'äº¬ä¸œå•†åŸ-é‹é´', '4RXyb1W4Y986LJW8ToqMK14BdTD'), //äº¬ä¸œé‹é´
+        JDUserSignPre(stop, 'JDChild', 'äº¬ä¸œå•†åŸ-ç«¥è£…', '3Af6mZNcf5m795T8dtDVfDwWVNhJ'), //äº¬ä¸œç«¥è£…é¦†
+        JDUserSignPre(stop, 'JDBaby', 'äº¬ä¸œå•†åŸ-æ¯å©´', '3BbAVGQPDd6vTyHYjmAutXrKAos6'), //äº¬ä¸œæ¯å©´é¦†
+        JDUserSignPre(stop, 'JD3C', 'äº¬ä¸œå•†åŸ-æ•°ç ', '4SWjnZSCTHPYjE5T7j35rxxuMTb6'), //äº¬ä¸œæ•°ç ç”µå™¨é¦†
+        JDUserSignPre(stop, 'JDWomen', 'äº¬ä¸œå•†åŸ-å¥³è£…', 'DpSh7ma8JV7QAxSE2gJNro8Q2h9'), //äº¬ä¸œå¥³è£…é¦†
+        JDUserSignPre(stop, 'JDBook', 'äº¬ä¸œå•†åŸ-å›¾ä¹¦', '3SC6rw5iBg66qrXPGmZMqFDwcyXi'), //äº¬ä¸œå›¾ä¹¦
+        JDUserSignPre(stop,'JDJiaDian','äº¬ä¸œå•†åŸ-å°å®¶ç”µé¦†','3uvPyw1pwHARGgndatCXddLNUxHw'), // äº¬ä¸œå°å®¶ç”µ
+        JingRongDoll(stop, 'JTDouble', 'äº¬ä¸œé‡‘è´´-åŒç­¾', '1DF13833F7'), //äº¬ä¸œé‡‘è é‡‘è´´åŒç­¾
+        // JingRongDoll(stop, 'XJDouble', 'é‡‘èç°é‡‘-åŒç­¾', 'F68B2C3E71', '', '', '', 'xianjin') //äº¬ä¸œé‡‘è ç°é‡‘åŒç­¾
       ]);
       await Promise.all([
-        JDUserSignPre(stop, 'JDEsports', '¾©¶«ÉÌ³Ç-µç¾º', 'CHdHQhA5AYDXXQN9FLt3QUAPRsB'), //¾©¶«µç¾º
-        JDUserSignPre(stop, 'JDClothing', '¾©¶«ÉÌ³Ç-·şÊÎ', '4RBT3H9jmgYg1k2kBnHF8NAHm7m8'), //¾©¶«·şÊÎ
-        JDUserSignPre(stop, 'JDSuitcase', '¾©¶«ÉÌ³Ç-Ïä°ü', 'ZrH7gGAcEkY2gH8wXqyAPoQgk6t'), //¾©¶«Ïä°ü¹İ
-        JDUserSignPre(stop, 'JDSchool', '¾©¶«ÉÌ³Ç-Ğ£Ô°', '2QUxWHx5BSCNtnBDjtt5gZTq7zdZ'), //¾©¶«Ğ£Ô°
-        JDUserSignPre(stop, 'JDHealth', '¾©¶«ÉÌ³Ç-½¡¿µ', 'w2oeK5yLdHqHvwef7SMMy4PL8LF'), //¾©¶«½¡¿µ
-        JDUserSignPre(stop, 'JDShand', '¾©¶«ÅÄÅÄ-¶şÊÖ', '3S28janPLYmtFxypu37AYAGgivfp'), //¾©¶«ÅÄÅÄ¶şÊÖ
-        JDUserSignPre(stop, 'JDClean', '¾©¶«ÉÌ³Ç-Çå½à', '2Tjm6ay1ZbZ3v7UbriTj6kHy9dn6'), //¾©¶«Çå½à¹İ
-        JDUserSignPre(stop, 'JDCare', '¾©¶«ÉÌ³Ç-¸ö»¤', '2tZssTgnQsiUqhmg5ooLSHY9XSeN'), //¾©¶«¸öÈË»¤Àí¹İ
-        // JDUserSignPre(stop, 'JDJewels', '¾©¶«ÉÌ³Ç-Öé±¦', 'zHUHpTHNTaztSRfNBFNVZscyFZU'), //¾©¶«Öé±¦¹İ
-        // JDUserSignPre(stop, 'JDMakeup', '¾©¶«ÉÌ³Ç-ÃÀ×±', '2smCxzLNuam5L14zNJHYu43ovbAP'), //¾©¶«ÃÀ×±¹İ
-        JDUserSignPre(stop, 'JDVege', '¾©¶«ÉÌ³Ç-²Ë³¡', 'Wcu2LVCFMkBP3HraRvb7pgSpt64'), //¾©¶«²Ë³¡
-        // JDUserSignPre(stop, 'JDLive', '¾©¶«ÖÇÄÜ-Éú»î', 'KcfFqWvhb5hHtaQkS4SD1UU6RcQ') //¾©¶«ÖÇÄÜÉú»î
+        JDUserSignPre(stop, 'JDEsports', 'äº¬ä¸œå•†åŸ-ç”µç«', 'CHdHQhA5AYDXXQN9FLt3QUAPRsB'), //äº¬ä¸œç”µç«
+        JDUserSignPre(stop, 'JDClothing', 'äº¬ä¸œå•†åŸ-æœé¥°', '4RBT3H9jmgYg1k2kBnHF8NAHm7m8'), //äº¬ä¸œæœé¥°
+        JDUserSignPre(stop, 'JDSuitcase', 'äº¬ä¸œå•†åŸ-ç®±åŒ…', 'ZrH7gGAcEkY2gH8wXqyAPoQgk6t'), //äº¬ä¸œç®±åŒ…é¦†
+        JDUserSignPre(stop, 'JDSchool', 'äº¬ä¸œå•†åŸ-æ ¡å›­', '2QUxWHx5BSCNtnBDjtt5gZTq7zdZ'), //äº¬ä¸œæ ¡å›­
+        JDUserSignPre(stop, 'JDHealth', 'äº¬ä¸œå•†åŸ-å¥åº·', 'w2oeK5yLdHqHvwef7SMMy4PL8LF'), //äº¬ä¸œå¥åº·
+        JDUserSignPre(stop, 'JDShand', 'äº¬ä¸œæ‹æ‹-äºŒæ‰‹', '3S28janPLYmtFxypu37AYAGgivfp'), //äº¬ä¸œæ‹æ‹äºŒæ‰‹
+        JDUserSignPre(stop, 'JDClean', 'äº¬ä¸œå•†åŸ-æ¸…æ´', '2Tjm6ay1ZbZ3v7UbriTj6kHy9dn6'), //äº¬ä¸œæ¸…æ´é¦†
+        JDUserSignPre(stop, 'JDCare', 'äº¬ä¸œå•†åŸ-ä¸ªæŠ¤', '2tZssTgnQsiUqhmg5ooLSHY9XSeN'), //äº¬ä¸œä¸ªäººæŠ¤ç†é¦†
+        // JDUserSignPre(stop, 'JDJewels', 'äº¬ä¸œå•†åŸ-ç å®', 'zHUHpTHNTaztSRfNBFNVZscyFZU'), //äº¬ä¸œç å®é¦†
+        // JDUserSignPre(stop, 'JDMakeup', 'äº¬ä¸œå•†åŸ-ç¾å¦†', '2smCxzLNuam5L14zNJHYu43ovbAP'), //äº¬ä¸œç¾å¦†é¦†
+        JDUserSignPre(stop, 'JDVege', 'äº¬ä¸œå•†åŸ-èœåœº', 'Wcu2LVCFMkBP3HraRvb7pgSpt64'), //äº¬ä¸œèœåœº
+        // JDUserSignPre(stop, 'JDLive', 'äº¬ä¸œæ™ºèƒ½-ç”Ÿæ´»', 'KcfFqWvhb5hHtaQkS4SD1UU6RcQ') //äº¬ä¸œæ™ºèƒ½ç”Ÿæ´»
       ]);
-      await JingRongDoll(stop, 'JDDouble', '½ğÈÚ¾©¶¹-Ë«Ç©', 'F68B2C3E71', '', '', '', 'jingdou'); //¾©¶«½ğÈÚ ¾©¶¹Ë«Ç©
+      await JingRongDoll(stop, 'JDDouble', 'é‡‘èäº¬è±†-åŒç­¾', 'F68B2C3E71', '', '', '', 'jingdou'); //äº¬ä¸œé‡‘è äº¬è±†åŒç­¾
       break;
     default:
-      await JingDongBean(0); //¾©¶«¾©¶¹
-      await JingDongStore(Wait(stop)); //¾©¶«³¬ÊĞ
-      await JingRongSteel(Wait(stop)); //½ğÈÚ¸ÖéG
-      await JingDongTurn(Wait(stop)); //¾©¶«×ªÅÌ
-      await JDFlashSale(Wait(stop)); //¾©¶«ÉÁ¹º
-      await JingDongCash(Wait(stop)); //¾©¶«ÏÖ½ğºì°ü
-      await JDMagicCube(Wait(stop), 2); //¾©¶«Ğ¡Ä§·½
-      await JingDongGetCash(Wait(stop)); //¾©¶«ÁìÏÖ½ğ
-      await JingDongSubsidy(Wait(stop)); //¾©¶«½ğÌù
-      await JingDongShake(Wait(stop)); //¾©¶«Ò¡Ò»Ò¡
-      await JDSecKilling(Wait(stop)); //¾©¶«ÃëÉ±
-      await JingDongBuyCar(Wait(stop), '435c9611622e4135b436b9d73351be10'); //¾©¶«Æû³µ
-      // await JingRongDoll(Wait(stop), 'JRThreeDoll', '¾©¶«½ğÈÚ-Ç©Èş', '69F5EC743C');
-      await JingRongDoll(Wait(stop), 'JRFourDoll', '¾©¶«½ğÈÚ-Ç©ËÁ', '30C4F86264');
-      // await JingRongDoll(Wait(stop), 'JRFiveDoll', '¾©¶«½ğÈÚ-Ç©Îé', '1D06AA3B0F');
-      // await JingRongDoll(Wait(stop), 'JRDoll', '¾©¶«½ğÈÚ-Ç©Ò¼', '4D25A6F482');
-      // await JingRongDoll(Wait(stop), 'XJDouble', '½ğÈÚÏÖ½ğ-Ë«Ç©', 'F68B2C3E71', '', '', '', 'xianjin'); //¾©¶«½ğÈÚ ÏÖ½ğË«Ç©
-      await JingRongDoll(Wait(stop), 'JTDouble', '¾©¶«½ğÌù-Ë«Ç©', '1DF13833F7'); //¾©¶«½ğÈÚ ½ğÌùË«Ç©
-      await JDUserSignPre(Wait(stop), 'JDCard', '¾©¶«ÉÌ³Ç-¿¨°ü', '7e5fRnma6RBATV9wNrGXJwihzcD'); //¾©¶«¿¨°ü
-      await JDUserSignPre(Wait(stop), 'JDUndies', '¾©¶«ÉÌ³Ç-ÄÚÒÂ', '4PgpL1xqPSW1sVXCJ3xopDbB1f69'); //¾©¶«ÄÚÒÂ¹İ
-      await JDUserSignPre(Wait(stop), 'JDEsports', '¾©¶«ÉÌ³Ç-µç¾º', 'CHdHQhA5AYDXXQN9FLt3QUAPRsB'); //¾©¶«µç¾º
-      // await JDUserSignPre(Wait(stop), 'JDCustomized', '¾©¶«ÉÌ³Ç-¶¨ÖÆ', '2BJK5RBdvc3hdddZDS1Svd5Esj3R'); //¾©¶«¶¨ÖÆ
-      await JDUserSignPre(Wait(stop), 'JDSuitcase', '¾©¶«ÉÌ³Ç-Ïä°ü', 'ZrH7gGAcEkY2gH8wXqyAPoQgk6t'); //¾©¶«Ïä°ü¹İ
-      await JDUserSignPre(Wait(stop), 'JDClothing', '¾©¶«ÉÌ³Ç-·şÊÎ', '4RBT3H9jmgYg1k2kBnHF8NAHm7m8'); //¾©¶«·şÊÎ
-      await JDUserSignPre(Wait(stop), 'JDSchool', '¾©¶«ÉÌ³Ç-Ğ£Ô°', '2QUxWHx5BSCNtnBDjtt5gZTq7zdZ'); //¾©¶«Ğ£Ô° 
-      await JDUserSignPre(Wait(stop), 'JDHealth', '¾©¶«ÉÌ³Ç-½¡¿µ', 'w2oeK5yLdHqHvwef7SMMy4PL8LF'); //¾©¶«½¡¿µ
-      await JDUserSignPre(Wait(stop), 'JDShoes', '¾©¶«ÉÌ³Ç-Ğ¬Ñ¥', '4RXyb1W4Y986LJW8ToqMK14BdTD'); //¾©¶«Ğ¬Ñ¥
-      await JDUserSignPre(Wait(stop), 'JDChild', '¾©¶«ÉÌ³Ç-Í¯×°', '3Af6mZNcf5m795T8dtDVfDwWVNhJ'); //¾©¶«Í¯×°¹İ
-      await JDUserSignPre(Wait(stop), 'JDBaby', '¾©¶«ÉÌ³Ç-Ä¸Ó¤', '3BbAVGQPDd6vTyHYjmAutXrKAos6'); //¾©¶«Ä¸Ó¤¹İ
-      await JDUserSignPre(Wait(stop), 'JD3C', '¾©¶«ÉÌ³Ç-ÊıÂë', '4SWjnZSCTHPYjE5T7j35rxxuMTb6'); //¾©¶«ÊıÂëµçÆ÷¹İ
-      await JDUserSignPre(Wait(stop), 'JDWomen', '¾©¶«ÉÌ³Ç-Å®×°', 'DpSh7ma8JV7QAxSE2gJNro8Q2h9'); //¾©¶«Å®×°¹İ
-      await JDUserSignPre(Wait(stop), 'JDBook', '¾©¶«ÉÌ³Ç-Í¼Êé', '3SC6rw5iBg66qrXPGmZMqFDwcyXi'); //¾©¶«Í¼Êé
-      await JDUserSignPre(Wait(stop), 'JDShand', '¾©¶«ÅÄÅÄ-¶şÊÖ', '3S28janPLYmtFxypu37AYAGgivfp'); //¾©¶«ÅÄÅÄ¶şÊÖ
-      // await JDUserSignPre(Wait(stop), 'JDMakeup', '¾©¶«ÉÌ³Ç-ÃÀ×±', '2smCxzLNuam5L14zNJHYu43ovbAP'); //¾©¶«ÃÀ×±¹İ
-      await JDUserSignPre(Wait(stop), 'JDVege', '¾©¶«ÉÌ³Ç-²Ë³¡', 'Wcu2LVCFMkBP3HraRvb7pgSpt64'); //¾©¶«²Ë³¡
-      await JDUserSignPre(Wait(stop), 'JDaccompany', '¾©¶«ÉÌ³Ç-Åã°é', 'kPM3Xedz1PBiGQjY4ZYGmeVvrts'); //¾©¶«Åã°é
-      // await JDUserSignPre(Wait(stop), 'JDLive', '¾©¶«ÖÇÄÜ-Éú»î', 'KcfFqWvhb5hHtaQkS4SD1UU6RcQ'); //¾©¶«ÖÇÄÜÉú»î
-      await JDUserSignPre(Wait(stop), 'JDClean', '¾©¶«ÉÌ³Ç-Çå½à', '2Tjm6ay1ZbZ3v7UbriTj6kHy9dn6'); //¾©¶«Çå½à¹İ
-      await JDUserSignPre(Wait(stop), 'JDCare', '¾©¶«ÉÌ³Ç-¸ö»¤', '2tZssTgnQsiUqhmg5ooLSHY9XSeN'); //¾©¶«¸öÈË»¤Àí¹İ
-      await JDUserSignPre(Wait(stop), 'JDJiaDian','¾©¶«ÉÌ³Ç-Ğ¡¼Òµç¹İ','3uvPyw1pwHARGgndatCXddLNUxHw'); // ¾©¶«Ğ¡¼Òµç¹İ
-      // await JDUserSignPre(Wait(stop), 'JDJewels', '¾©¶«ÉÌ³Ç-Öé±¦', 'zHUHpTHNTaztSRfNBFNVZscyFZU'); //¾©¶«Öé±¦¹İ
-      await JingRongDoll(Wait(stop), 'JDDouble', '½ğÈÚ¾©¶¹-Ë«Ç©', 'F68B2C3E71', '', '', '', 'jingdou'); //¾©¶«½ğÈÚ ¾©¶¹Ë«Ç©
+      await JingDongBean(0); //äº¬ä¸œäº¬è±†
+      await JingDongStore(Wait(stop)); //äº¬ä¸œè¶…å¸‚
+      await JingRongSteel(Wait(stop)); //é‡‘èé’¢é•š
+      await JingDongTurn(Wait(stop)); //äº¬ä¸œè½¬ç›˜
+      await JDFlashSale(Wait(stop)); //äº¬ä¸œé—ªè´­
+      await JingDongCash(Wait(stop)); //äº¬ä¸œç°é‡‘çº¢åŒ…
+      await JDMagicCube(Wait(stop), 2); //äº¬ä¸œå°é­”æ–¹
+      await JingDongGetCash(Wait(stop)); //äº¬ä¸œé¢†ç°é‡‘
+      await JingDongSubsidy(Wait(stop)); //äº¬ä¸œé‡‘è´´
+      await JingDongShake(Wait(stop)); //äº¬ä¸œæ‘‡ä¸€æ‘‡
+      await JDSecKilling(Wait(stop)); //äº¬ä¸œç§’æ€
+      await JingDongBuyCar(Wait(stop), '435c9611622e4135b436b9d73351be10'); //äº¬ä¸œæ±½è½¦
+      // await JingRongDoll(Wait(stop), 'JRThreeDoll', 'äº¬ä¸œé‡‘è-ç­¾å', '69F5EC743C');
+      await JingRongDoll(Wait(stop), 'JRFourDoll', 'äº¬ä¸œé‡‘è-ç­¾è‚†', '30C4F86264');
+      // await JingRongDoll(Wait(stop), 'JRFiveDoll', 'äº¬ä¸œé‡‘è-ç­¾ä¼', '1D06AA3B0F');
+      // await JingRongDoll(Wait(stop), 'JRDoll', 'äº¬ä¸œé‡‘è-ç­¾å£¹', '4D25A6F482');
+      // await JingRongDoll(Wait(stop), 'XJDouble', 'é‡‘èç°é‡‘-åŒç­¾', 'F68B2C3E71', '', '', '', 'xianjin'); //äº¬ä¸œé‡‘è ç°é‡‘åŒç­¾
+      await JingRongDoll(Wait(stop), 'JTDouble', 'äº¬ä¸œé‡‘è´´-åŒç­¾', '1DF13833F7'); //äº¬ä¸œé‡‘è é‡‘è´´åŒç­¾
+      await JDUserSignPre(Wait(stop), 'JDCard', 'äº¬ä¸œå•†åŸ-å¡åŒ…', '7e5fRnma6RBATV9wNrGXJwihzcD'); //äº¬ä¸œå¡åŒ…
+      await JDUserSignPre(Wait(stop), 'JDUndies', 'äº¬ä¸œå•†åŸ-å†…è¡£', '4PgpL1xqPSW1sVXCJ3xopDbB1f69'); //äº¬ä¸œå†…è¡£é¦†
+      await JDUserSignPre(Wait(stop), 'JDEsports', 'äº¬ä¸œå•†åŸ-ç”µç«', 'CHdHQhA5AYDXXQN9FLt3QUAPRsB'); //äº¬ä¸œç”µç«
+      // await JDUserSignPre(Wait(stop), 'JDCustomized', 'äº¬ä¸œå•†åŸ-å®šåˆ¶', '2BJK5RBdvc3hdddZDS1Svd5Esj3R'); //äº¬ä¸œå®šåˆ¶
+      await JDUserSignPre(Wait(stop), 'JDSuitcase', 'äº¬ä¸œå•†åŸ-ç®±åŒ…', 'ZrH7gGAcEkY2gH8wXqyAPoQgk6t'); //äº¬ä¸œç®±åŒ…é¦†
+      await JDUserSignPre(Wait(stop), 'JDClothing', 'äº¬ä¸œå•†åŸ-æœé¥°', '4RBT3H9jmgYg1k2kBnHF8NAHm7m8'); //äº¬ä¸œæœé¥°
+      await JDUserSignPre(Wait(stop), 'JDSchool', 'äº¬ä¸œå•†åŸ-æ ¡å›­', '2QUxWHx5BSCNtnBDjtt5gZTq7zdZ'); //äº¬ä¸œæ ¡å›­ 
+      await JDUserSignPre(Wait(stop), 'JDHealth', 'äº¬ä¸œå•†åŸ-å¥åº·', 'w2oeK5yLdHqHvwef7SMMy4PL8LF'); //äº¬ä¸œå¥åº·
+      await JDUserSignPre(Wait(stop), 'JDShoes', 'äº¬ä¸œå•†åŸ-é‹é´', '4RXyb1W4Y986LJW8ToqMK14BdTD'); //äº¬ä¸œé‹é´
+      await JDUserSignPre(Wait(stop), 'JDChild', 'äº¬ä¸œå•†åŸ-ç«¥è£…', '3Af6mZNcf5m795T8dtDVfDwWVNhJ'); //äº¬ä¸œç«¥è£…é¦†
+      await JDUserSignPre(Wait(stop), 'JDBaby', 'äº¬ä¸œå•†åŸ-æ¯å©´', '3BbAVGQPDd6vTyHYjmAutXrKAos6'); //äº¬ä¸œæ¯å©´é¦†
+      await JDUserSignPre(Wait(stop), 'JD3C', 'äº¬ä¸œå•†åŸ-æ•°ç ', '4SWjnZSCTHPYjE5T7j35rxxuMTb6'); //äº¬ä¸œæ•°ç ç”µå™¨é¦†
+      await JDUserSignPre(Wait(stop), 'JDWomen', 'äº¬ä¸œå•†åŸ-å¥³è£…', 'DpSh7ma8JV7QAxSE2gJNro8Q2h9'); //äº¬ä¸œå¥³è£…é¦†
+      await JDUserSignPre(Wait(stop), 'JDBook', 'äº¬ä¸œå•†åŸ-å›¾ä¹¦', '3SC6rw5iBg66qrXPGmZMqFDwcyXi'); //äº¬ä¸œå›¾ä¹¦
+      await JDUserSignPre(Wait(stop), 'JDShand', 'äº¬ä¸œæ‹æ‹-äºŒæ‰‹', '3S28janPLYmtFxypu37AYAGgivfp'); //äº¬ä¸œæ‹æ‹äºŒæ‰‹
+      // await JDUserSignPre(Wait(stop), 'JDMakeup', 'äº¬ä¸œå•†åŸ-ç¾å¦†', '2smCxzLNuam5L14zNJHYu43ovbAP'); //äº¬ä¸œç¾å¦†é¦†
+      await JDUserSignPre(Wait(stop), 'JDVege', 'äº¬ä¸œå•†åŸ-èœåœº', 'Wcu2LVCFMkBP3HraRvb7pgSpt64'); //äº¬ä¸œèœåœº
+      await JDUserSignPre(Wait(stop), 'JDaccompany', 'äº¬ä¸œå•†åŸ-é™ªä¼´', 'kPM3Xedz1PBiGQjY4ZYGmeVvrts'); //äº¬ä¸œé™ªä¼´
+      // await JDUserSignPre(Wait(stop), 'JDLive', 'äº¬ä¸œæ™ºèƒ½-ç”Ÿæ´»', 'KcfFqWvhb5hHtaQkS4SD1UU6RcQ'); //äº¬ä¸œæ™ºèƒ½ç”Ÿæ´»
+      await JDUserSignPre(Wait(stop), 'JDClean', 'äº¬ä¸œå•†åŸ-æ¸…æ´', '2Tjm6ay1ZbZ3v7UbriTj6kHy9dn6'); //äº¬ä¸œæ¸…æ´é¦†
+      await JDUserSignPre(Wait(stop), 'JDCare', 'äº¬ä¸œå•†åŸ-ä¸ªæŠ¤', '2tZssTgnQsiUqhmg5ooLSHY9XSeN'); //äº¬ä¸œä¸ªäººæŠ¤ç†é¦†
+      await JDUserSignPre(Wait(stop), 'JDJiaDian','äº¬ä¸œå•†åŸ-å°å®¶ç”µé¦†','3uvPyw1pwHARGgndatCXddLNUxHw'); // äº¬ä¸œå°å®¶ç”µé¦†
+      // await JDUserSignPre(Wait(stop), 'JDJewels', 'äº¬ä¸œå•†åŸ-ç å®', 'zHUHpTHNTaztSRfNBFNVZscyFZU'); //äº¬ä¸œç å®é¦†
+      await JingRongDoll(Wait(stop), 'JDDouble', 'é‡‘èäº¬è±†-åŒç­¾', 'F68B2C3E71', '', '', '', 'jingdou'); //äº¬ä¸œé‡‘è äº¬è±†åŒç­¾
       break;
   }
   await Promise.all([
-    TotalSteel(), //×Ü¸ÖéG²éÑ¯
-    TotalCash(), //×Üºì°ü²éÑ¯
-    TotalBean(), //×Ü¾©¶¹²éÑ¯
-    TotalSubsidy(), //×Ü½ğÌù²éÑ¯
-    TotalMoney() //×ÜÏÖ½ğ²éÑ¯
+    TotalSteel(), //æ€»é’¢é•šæŸ¥è¯¢
+    TotalCash(), //æ€»çº¢åŒ…æŸ¥è¯¢
+    TotalBean(), //æ€»äº¬è±†æŸ¥è¯¢
+    TotalSubsidy(), //æ€»é‡‘è´´æŸ¥è¯¢
+    TotalMoney() //æ€»ç°é‡‘æŸ¥è¯¢
   ]);
-  await notify(); //Í¨ÖªÄ£¿é
+  await notify(); //é€šçŸ¥æ¨¡å—
 }
 
 function notify() {
@@ -232,31 +232,31 @@ function notify() {
         err += merge[i].error ? Number(merge[i].error) : 0
         notify += merge[i].notify ? "\n" + merge[i].notify : ""
       }
-      var Cash = merge.TotalCash && merge.TotalCash.TCash ? `${merge.TotalCash.TCash}ºì°ü` : ""
-      var Steel = merge.TotalSteel && merge.TotalSteel.TSteel ? `${merge.TotalSteel.TSteel}¸ÖéG` : ``
-      var beans = merge.TotalBean && merge.TotalBean.Qbear ? `${merge.TotalBean.Qbear}¾©¶¹${Steel?`, `:``}` : ""
-      var Money = merge.TotalMoney && merge.TotalMoney.TMoney ? `${merge.TotalMoney.TMoney}ÏÖ½ğ${Cash?`, `:``}` : ""
-      var Subsidy = merge.TotalSubsidy && merge.TotalSubsidy.TSubsidy ? `${merge.TotalSubsidy.TSubsidy}½ğÌù${Money||Cash?", ":""}` : ""
-      var Tbean = bean ? `${bean.toFixed(0)}¾©¶¹${steel?", ":""}` : ""
-      var TSteel = steel ? `${steel.toFixed(2)}¸ÖéG` : ""
-      var TCash = cash ? `${cash.toFixed(2)}ºì°ü${subsidy||money?", ":""}` : ""
-      var TSubsidy = subsidy ? `${subsidy.toFixed(2)}½ğÌù${money?", ":""}` : ""
-      var TMoney = money ? `${money.toFixed(2)}ÏÖ½ğ` : ""
-      var Ts = success ? `³É¹¦${success}¸ö${fail||err?`, `:``}` : ``
-      var Tf = fail ? `Ê§°Ü${fail}¸ö${err?`, `:``}` : ``
-      var Te = err ? `´íÎó${err}¸ö` : ``
-      var one = `¡¾Ç©µ½¸ÅÀÀ¡¿:  ${Ts+Tf+Te}${Ts||Tf||Te?`\n`:`»ñÈ¡Ê§°Ü\n`}`
-      var two = Tbean || TSteel ? `¡¾Ç©µ½½±Àø¡¿:  ${Tbean+TSteel}\n` : ``
-      var three = TCash || TSubsidy || TMoney ? `¡¾ÆäËû½±Àø¡¿:  ${TCash+TSubsidy+TMoney}\n` : ``
-      var four = `¡¾ÕËºÅ×Ü¼Æ¡¿:  ${beans+Steel}${beans||Steel?`\n`:`»ñÈ¡Ê§°Ü\n`}`
-      var five = `¡¾ÆäËû×Ü¼Æ¡¿:  ${Subsidy+Money+Cash}${Subsidy||Money||Cash?`\n`:`»ñÈ¡Ê§°Ü\n`}`
-      var DName = merge.TotalBean && merge.TotalBean.nickname ? merge.TotalBean.nickname : "»ñÈ¡Ê§°Ü"
-      var cnNum = ["Áã", "Ò»", "¶ş", "Èı", "ËÄ", "Îå", "Áù", "Æß", "°Ë", "¾Å", "Ê®"];
+      var Cash = merge.TotalCash && merge.TotalCash.TCash ? `${merge.TotalCash.TCash}çº¢åŒ…` : ""
+      var Steel = merge.TotalSteel && merge.TotalSteel.TSteel ? `${merge.TotalSteel.TSteel}é’¢é•š` : ``
+      var beans = merge.TotalBean && merge.TotalBean.Qbear ? `${merge.TotalBean.Qbear}äº¬è±†${Steel?`, `:``}` : ""
+      var Money = merge.TotalMoney && merge.TotalMoney.TMoney ? `${merge.TotalMoney.TMoney}ç°é‡‘${Cash?`, `:``}` : ""
+      var Subsidy = merge.TotalSubsidy && merge.TotalSubsidy.TSubsidy ? `${merge.TotalSubsidy.TSubsidy}é‡‘è´´${Money||Cash?", ":""}` : ""
+      var Tbean = bean ? `${bean.toFixed(0)}äº¬è±†${steel?", ":""}` : ""
+      var TSteel = steel ? `${steel.toFixed(2)}é’¢é•š` : ""
+      var TCash = cash ? `${cash.toFixed(2)}çº¢åŒ…${subsidy||money?", ":""}` : ""
+      var TSubsidy = subsidy ? `${subsidy.toFixed(2)}é‡‘è´´${money?", ":""}` : ""
+      var TMoney = money ? `${money.toFixed(2)}ç°é‡‘` : ""
+      var Ts = success ? `æˆåŠŸ${success}ä¸ª${fail||err?`, `:``}` : ``
+      var Tf = fail ? `å¤±è´¥${fail}ä¸ª${err?`, `:``}` : ``
+      var Te = err ? `é”™è¯¯${err}ä¸ª` : ``
+      var one = `ã€ç­¾åˆ°æ¦‚è§ˆã€‘:  ${Ts+Tf+Te}${Ts||Tf||Te?`\n`:`è·å–å¤±è´¥\n`}`
+      var two = Tbean || TSteel ? `ã€ç­¾åˆ°å¥–åŠ±ã€‘:  ${Tbean+TSteel}\n` : ``
+      var three = TCash || TSubsidy || TMoney ? `ã€å…¶ä»–å¥–åŠ±ã€‘:  ${TCash+TSubsidy+TMoney}\n` : ``
+      var four = `ã€è´¦å·æ€»è®¡ã€‘:  ${beans+Steel}${beans||Steel?`\n`:`è·å–å¤±è´¥\n`}`
+      var five = `ã€å…¶ä»–æ€»è®¡ã€‘:  ${Subsidy+Money+Cash}${Subsidy||Money||Cash?`\n`:`è·å–å¤±è´¥\n`}`
+      var DName = merge.TotalBean && merge.TotalBean.nickname ? merge.TotalBean.nickname : "è·å–å¤±è´¥"
+      var cnNum = ["é›¶", "ä¸€", "äºŒ", "ä¸‰", "å››", "äº”", "å…­", "ä¸ƒ", "å…«", "ä¹", "å"];
       const numFix = !Key && !DualKey ? DualAccount - 2 : Key && DualKey ? DualAccount : DualAccount - 1 || DualAccount
-      const Name = DualKey || OtherKey ? `¡¾Ç©µ½ºÅ${cnNum[numFix]||numFix}¡¿:  ${DName}\n` : ``
+      const Name = DualKey || OtherKey ? `ã€ç­¾åˆ°å·${cnNum[numFix]||numFix}ã€‘:  ${DName}\n` : ``
       const disables = $nobyda.read("JD_DailyBonusDisables")
       const amount = disables ? disables.split(",").length : 0
-      const disa = !notify || amount ? `¡¾ÎÂÜ°ÌáÊ¾¡¿:  ¼ì²âµ½${$nobyda.disable?`ÉÏ´ÎÖ´ĞĞÒâÍâ±ÀÀ£, `:``}ÒÑ½ûÓÃ${notify?`${amount}¸ö`:`ËùÓĞ`}½Ó¿Ú, ÈçĞè¿ªÆôÇëÇ°ÍùBoxJs»ò²é¿´½Å±¾ÄÚµÚ100ĞĞ×¢ÊÍ.\n` : ``
+      const disa = !notify || amount ? `ã€æ¸©é¦¨æç¤ºã€‘:  æ£€æµ‹åˆ°${$nobyda.disable?`ä¸Šæ¬¡æ‰§è¡Œæ„å¤–å´©æºƒ, `:``}å·²ç¦ç”¨${notify?`${amount}ä¸ª`:`æ‰€æœ‰`}æ¥å£, å¦‚éœ€å¼€å¯è¯·å‰å¾€BoxJsæˆ–æŸ¥çœ‹è„šæœ¬å†…ç¬¬100è¡Œæ³¨é‡Š.\n` : ``
       $nobyda.notify("", "", Name + one + two + three + four + five + disa + notify, {
         'media-url': $nobyda.headUrl || 'https://cdn.jsdelivr.net/gh/NobyDa/mini@master/Color/jd.png'
       });
@@ -266,7 +266,7 @@ function notify() {
       }
       double();
     } catch (eor) {
-      $nobyda.notify("Í¨ÖªÄ£¿é " + eor.name + "??", JSON.stringify(eor), eor.message)
+      $nobyda.notify("é€šçŸ¥æ¨¡å— " + eor.name + "??", JSON.stringify(eor), eor.message)
     } finally {
       resolve()
     }
@@ -283,11 +283,11 @@ function ReadCookie() {
       $nobyda.write("", EnvInfo)
       $nobyda.write("", EnvInfo2)
       $nobyda.write("", EnvInfo3)
-      $nobyda.notify("¾©¶«CookieÇå³ı³É¹¦ !", "", 'ÇëÊÖ¶¯¹Ø±Õ½Å±¾ÄÚ"DeleteCookie"Ñ¡Ïî')
+      $nobyda.notify("äº¬ä¸œCookieæ¸…é™¤æˆåŠŸ !", "", 'è¯·æ‰‹åŠ¨å…³é—­è„šæœ¬å†…"DeleteCookie"é€‰é¡¹')
       $nobyda.done()
       return
     }
-    $nobyda.notify("½Å±¾ÖÕÖ¹", "", 'Î´¹Ø±Õ½Å±¾ÄÚ"DeleteCookie"Ñ¡Ïî ??')
+    $nobyda.notify("è„šæœ¬ç»ˆæ­¢", "", 'æœªå…³é—­è„šæœ¬å†…"DeleteCookie"é€‰é¡¹ ??')
     $nobyda.done()
     return
   } else if ($nobyda.isRequest) {
@@ -316,7 +316,7 @@ function ReadCookie() {
       double()
     }
   } else {
-    $nobyda.notify("¾©¶«Ç©µ½", "", "½Å±¾ÖÕÖ¹, Î´»ñÈ¡Cookie ??")
+    $nobyda.notify("äº¬ä¸œç­¾åˆ°", "", "è„šæœ¬ç»ˆæ­¢, æœªè·å–Cookie ??")
     $nobyda.done()
   }
 }
@@ -334,7 +334,7 @@ function double() {
       cks = JSON.parse(OtherKey);
     } catch (e) {
       cks = [];
-      console.log(`\nµÚÈı¼°ÒÔÉÏÕËºÅCookie¶ÁÈ¡Ê§°Ü, Çë¼ì²éJson¸ñÊ½.`)
+      console.log(`\nç¬¬ä¸‰åŠä»¥ä¸Šè´¦å·Cookieè¯»å–å¤±è´¥, è¯·æ£€æŸ¥Jsonæ ¼å¼.`)
     }
     if (cks.length + 2 >= DualAccount) {
       KEY = cks[DualAccount - 3].cookie;
@@ -371,42 +371,42 @@ function JingDongBean(s) {
             const cc = JSON.parse(data)
             const Details = LogDetails ? "response:\n" + data : '';
             if (cc.code == 3) {
-              console.log("\n" + "¾©¶«ÉÌ³Ç-¾©¶¹CookieÊ§Ğ§ " + Details)
-              merge.JDBean.notify = "¾©¶«ÉÌ³Ç-¾©¶¹: Ê§°Ü, Ô­Òò: CookieÊ§Ğ§??"
+              console.log("\n" + "äº¬ä¸œå•†åŸ-äº¬è±†Cookieå¤±æ•ˆ " + Details)
+              merge.JDBean.notify = "äº¬ä¸œå•†åŸ-äº¬è±†: å¤±è´¥, åŸå› : Cookieå¤±æ•ˆ??"
               merge.JDBean.fail = 1
-            } else if (data.match(/Ìø×ªÖÁÆ´Í¼/)) {
-              merge.JDBean.notify = "¾©¶«ÉÌ³Ç-¾©¶¹: Ê§°Ü, ĞèÒªÆ´Í¼ÑéÖ¤ ??"
+            } else if (data.match(/è·³è½¬è‡³æ‹¼å›¾/)) {
+              merge.JDBean.notify = "äº¬ä¸œå•†åŸ-äº¬è±†: å¤±è´¥, éœ€è¦æ‹¼å›¾éªŒè¯ ??"
               merge.JDBean.fail = 1
             } else if (data.match(/\"status\":\"?1\"?/)) {
-              console.log("\n" + "¾©¶«ÉÌ³Ç-¾©¶¹Ç©µ½³É¹¦ " + Details)
+              console.log("\n" + "äº¬ä¸œå•†åŸ-äº¬è±†ç­¾åˆ°æˆåŠŸ " + Details)
               if (data.match(/dailyAward/)) {
-                merge.JDBean.notify = "¾©¶«ÉÌ³Ç-¾©¶¹: ³É¹¦, Ã÷Ï¸: " + cc.data.dailyAward.beanAward.beanCount + "¾©¶¹ ??"
+                merge.JDBean.notify = "äº¬ä¸œå•†åŸ-äº¬è±†: æˆåŠŸ, æ˜ç»†: " + cc.data.dailyAward.beanAward.beanCount + "äº¬è±† ??"
                 merge.JDBean.bean = cc.data.dailyAward.beanAward.beanCount
               } else if (data.match(/continuityAward/)) {
-                merge.JDBean.notify = "¾©¶«ÉÌ³Ç-¾©¶¹: ³É¹¦, Ã÷Ï¸: " + cc.data.continuityAward.beanAward.beanCount + "¾©¶¹ ??"
+                merge.JDBean.notify = "äº¬ä¸œå•†åŸ-äº¬è±†: æˆåŠŸ, æ˜ç»†: " + cc.data.continuityAward.beanAward.beanCount + "äº¬è±† ??"
                 merge.JDBean.bean = cc.data.continuityAward.beanAward.beanCount
-              } else if (data.match(/ĞÂÈËÇ©µ½/)) {
-                const quantity = data.match(/beanCount\":\"(\d+)\".+½ñÌì/)
+              } else if (data.match(/æ–°äººç­¾åˆ°/)) {
+                const quantity = data.match(/beanCount\":\"(\d+)\".+ä»Šå¤©/)
                 merge.JDBean.bean = quantity ? quantity[1] : 0
-                merge.JDBean.notify = "¾©¶«ÉÌ³Ç-¾©¶¹: ³É¹¦, Ã÷Ï¸: " + (quantity ? quantity[1] : "ÎŞ") + "¾©¶¹ ??"
+                merge.JDBean.notify = "äº¬ä¸œå•†åŸ-äº¬è±†: æˆåŠŸ, æ˜ç»†: " + (quantity ? quantity[1] : "æ— ") + "äº¬è±† ??"
               } else {
-                merge.JDBean.notify = "¾©¶«ÉÌ³Ç-¾©¶¹: ³É¹¦, Ã÷Ï¸: ÎŞ¾©¶¹ ??"
+                merge.JDBean.notify = "äº¬ä¸œå•†åŸ-äº¬è±†: æˆåŠŸ, æ˜ç»†: æ— äº¬è±† ??"
               }
               merge.JDBean.success = 1
             } else {
               merge.JDBean.fail = 1
-              console.log("\n" + "¾©¶«ÉÌ³Ç-¾©¶¹Ç©µ½Ê§°Ü " + Details)
-              if (data.match(/(ÒÑÇ©µ½|ĞÂÈËÇ©µ½)/)) {
-                merge.JDBean.notify = "¾©¶«ÉÌ³Ç-¾©¶¹: Ê§°Ü, Ô­Òò: ÒÑÇ©¹ı ??"
-              } else if (data.match(/ÈËÊı½Ï¶à|S101/)) {
-                merge.JDBean.notify = "¾©¶«ÉÌ³Ç-¾©¶¹: Ê§°Ü, Ç©µ½ÈËÊı½Ï¶à ??"
+              console.log("\n" + "äº¬ä¸œå•†åŸ-äº¬è±†ç­¾åˆ°å¤±è´¥ " + Details)
+              if (data.match(/(å·²ç­¾åˆ°|æ–°äººç­¾åˆ°)/)) {
+                merge.JDBean.notify = "äº¬ä¸œå•†åŸ-äº¬è±†: å¤±è´¥, åŸå› : å·²ç­¾è¿‡ ??"
+              } else if (data.match(/äººæ•°è¾ƒå¤š|S101/)) {
+                merge.JDBean.notify = "äº¬ä¸œå•†åŸ-äº¬è±†: å¤±è´¥, ç­¾åˆ°äººæ•°è¾ƒå¤š ??"
               } else {
-                merge.JDBean.notify = "¾©¶«ÉÌ³Ç-¾©¶¹: Ê§°Ü, Ô­Òò: Î´Öª ??"
+                merge.JDBean.notify = "äº¬ä¸œå•†åŸ-äº¬è±†: å¤±è´¥, åŸå› : æœªçŸ¥ ??"
               }
             }
           }
         } catch (eor) {
-          $nobyda.AnError("¾©¶«ÉÌ³Ç-¾©¶¹", "JDBean", eor, response, data)
+          $nobyda.AnError("äº¬ä¸œå•†åŸ-äº¬è±†", "JDBean", eor, response, data)
         } finally {
           resolve()
         }
@@ -434,16 +434,16 @@ function JingDongTurn(s) {
           const cc = JSON.parse(data).data.lotteryCode
           const Details = LogDetails ? "response:\n" + data : '';
           if (cc) {
-            console.log("\n" + "¾©¶«ÉÌ³Ç-×ªÅÌ²éÑ¯³É¹¦ " + Details)
+            console.log("\n" + "äº¬ä¸œå•†åŸ-è½¬ç›˜æŸ¥è¯¢æˆåŠŸ " + Details)
             return resolve(cc)
           } else {
-            merge.JDTurn.notify = "¾©¶«ÉÌ³Ç-×ªÅÌ: Ê§°Ü, Ô­Òò: ²éÑ¯´íÎó ??"
+            merge.JDTurn.notify = "äº¬ä¸œå•†åŸ-è½¬ç›˜: å¤±è´¥, åŸå› : æŸ¥è¯¢é”™è¯¯ ??"
             merge.JDTurn.fail = 1
-            console.log("\n" + "¾©¶«ÉÌ³Ç-×ªÅÌ²éÑ¯Ê§°Ü " + Details)
+            console.log("\n" + "äº¬ä¸œå•†åŸ-è½¬ç›˜æŸ¥è¯¢å¤±è´¥ " + Details)
           }
         }
       } catch (eor) {
-        $nobyda.AnError("¾©¶«×ªÅÌ-²éÑ¯", "JDTurn", eor, response, data)
+        $nobyda.AnError("äº¬ä¸œè½¬ç›˜-æŸ¥è¯¢", "JDTurn", eor, response, data)
       } finally {
         reject()
       }
@@ -472,40 +472,40 @@ function JingDongTurnSign(s, code) {
             const Details = LogDetails ? "response:\n" + data : '';
             const also = merge.JDTurn.notify ? true : false
             if (cc.code == 3) {
-              console.log("\n" + "¾©¶«×ªÅÌCookieÊ§Ğ§ " + Details)
-              merge.JDTurn.notify = "¾©¶«ÉÌ³Ç-×ªÅÌ: Ê§°Ü, Ô­Òò: CookieÊ§Ğ§??"
+              console.log("\n" + "äº¬ä¸œè½¬ç›˜Cookieå¤±æ•ˆ " + Details)
+              merge.JDTurn.notify = "äº¬ä¸œå•†åŸ-è½¬ç›˜: å¤±è´¥, åŸå› : Cookieå¤±æ•ˆ??"
               merge.JDTurn.fail = 1
-            } else if (data.match(/(\"T216\"|»î¶¯½áÊø)/)) {
-              merge.JDTurn.notify = "¾©¶«ÉÌ³Ç-×ªÅÌ: Ê§°Ü, Ô­Òò: »î¶¯½áÊø ??"
+            } else if (data.match(/(\"T216\"|æ´»åŠ¨ç»“æŸ)/)) {
+              merge.JDTurn.notify = "äº¬ä¸œå•†åŸ-è½¬ç›˜: å¤±è´¥, åŸå› : æ´»åŠ¨ç»“æŸ ??"
               merge.JDTurn.fail = 1
-            } else if (data.match(/(¾©¶¹|\"910582\")/)) {
-              console.log("\n" + "¾©¶«ÉÌ³Ç-×ªÅÌÇ©µ½³É¹¦ " + Details)
+            } else if (data.match(/(äº¬è±†|\"910582\")/)) {
+              console.log("\n" + "äº¬ä¸œå•†åŸ-è½¬ç›˜ç­¾åˆ°æˆåŠŸ " + Details)
               merge.JDTurn.bean += Number(cc.data.prizeSendNumber) || 0
-              merge.JDTurn.notify += `${also?`\n`:``}¾©¶«ÉÌ³Ç-×ªÅÌ: ${also?`¶à´Î`:`³É¹¦`}, Ã÷Ï¸: ${cc.data.prizeSendNumber||`ÎŞ`}¾©¶¹ ??`
+              merge.JDTurn.notify += `${also?`\n`:``}äº¬ä¸œå•†åŸ-è½¬ç›˜: ${also?`å¤šæ¬¡`:`æˆåŠŸ`}, æ˜ç»†: ${cc.data.prizeSendNumber||`æ— `}äº¬è±† ??`
               merge.JDTurn.success += 1
               if (cc.data.chances != "0") {
                 await JingDongTurnSign(2000, code)
               }
-            } else if (data.match(/Î´ÖĞ½±/)) {
-              merge.JDTurn.notify += `${also?`\n`:``}¾©¶«ÉÌ³Ç-×ªÅÌ: ${also?`¶à´Î`:`³É¹¦`}, ×´Ì¬: Î´ÖĞ½± ??`
+            } else if (data.match(/æœªä¸­å¥–/)) {
+              merge.JDTurn.notify += `${also?`\n`:``}äº¬ä¸œå•†åŸ-è½¬ç›˜: ${also?`å¤šæ¬¡`:`æˆåŠŸ`}, çŠ¶æ€: æœªä¸­å¥– ??`
               merge.JDTurn.success += 1
               if (cc.data.chances != "0") {
                 await JingDongTurnSign(2000, code)
               }
             } else {
-              console.log("\n" + "¾©¶«ÉÌ³Ç-×ªÅÌÇ©µ½Ê§°Ü " + Details)
+              console.log("\n" + "äº¬ä¸œå•†åŸ-è½¬ç›˜ç­¾åˆ°å¤±è´¥ " + Details)
               merge.JDTurn.fail = 1
-              if (data.match(/(T215|´ÎÊıÎª0)/)) {
-                merge.JDTurn.notify = "¾©¶«ÉÌ³Ç-×ªÅÌ: Ê§°Ü, Ô­Òò: ÒÑ×ª¹ı ??"
-              } else if (data.match(/(T210|ÃÜÂë)/)) {
-                merge.JDTurn.notify = "¾©¶«ÉÌ³Ç-×ªÅÌ: Ê§°Ü, Ô­Òò: ÎŞÖ§¸¶ÃÜÂë ??"
+              if (data.match(/(T215|æ¬¡æ•°ä¸º0)/)) {
+                merge.JDTurn.notify = "äº¬ä¸œå•†åŸ-è½¬ç›˜: å¤±è´¥, åŸå› : å·²è½¬è¿‡ ??"
+              } else if (data.match(/(T210|å¯†ç )/)) {
+                merge.JDTurn.notify = "äº¬ä¸œå•†åŸ-è½¬ç›˜: å¤±è´¥, åŸå› : æ— æ”¯ä»˜å¯†ç  ??"
               } else {
-                merge.JDTurn.notify += `${also?`\n`:``}¾©¶«ÉÌ³Ç-×ªÅÌ: Ê§°Ü, Ô­Òò: Î´Öª ??${also?` (¶à´Î)`:``}`
+                merge.JDTurn.notify += `${also?`\n`:``}äº¬ä¸œå•†åŸ-è½¬ç›˜: å¤±è´¥, åŸå› : æœªçŸ¥ ??${also?` (å¤šæ¬¡)`:``}`
               }
             }
           }
         } catch (eor) {
-          $nobyda.AnError("¾©¶«ÉÌ³Ç-×ªÅÌ", "JDTurn", eor, response, data)
+          $nobyda.AnError("äº¬ä¸œå•†åŸ-è½¬ç›˜", "JDTurn", eor, response, data)
         } finally {
           resolve()
         }
@@ -533,27 +533,27 @@ function JingRongSteel(s) {
           const cc = JSON.parse(data)
           const Details = LogDetails ? "response:\n" + data : '';
           if (data.match(/\"resBusiCode\":0/)) {
-            console.log("\n" + "¾©¶«½ğÈÚ-¸ÖéGÇ©µ½³É¹¦ " + Details)
+            console.log("\n" + "äº¬ä¸œé‡‘è-é’¢é•šç­¾åˆ°æˆåŠŸ " + Details)
             const leng = cc.resultData.resBusiData.actualTotalRewardsValue
             const spare = cc.resultData.resBusiData.baseReward
             merge.JRSteel.steel = leng ? leng > 9 ? `0.${leng}` : `0.0${leng}` : spare ? spare : 0
-            merge.JRSteel.notify = `¾©¶«½ğÈÚ-¸ÖéG: ³É¹¦, Ã÷Ï¸: ${merge.JRSteel.steel || `ÎŞ`}¸ÖéG ??`
+            merge.JRSteel.notify = `äº¬ä¸œé‡‘è-é’¢é•š: æˆåŠŸ, æ˜ç»†: ${merge.JRSteel.steel || `æ— `}é’¢é•š ??`
             merge.JRSteel.success = 1
           } else {
-            console.log("\n" + "¾©¶«½ğÈÚ-¸ÖéGÇ©µ½Ê§°Ü " + Details)
+            console.log("\n" + "äº¬ä¸œé‡‘è-é’¢é•šç­¾åˆ°å¤±è´¥ " + Details)
             merge.JRSteel.fail = 1
-            if (data.match(/ÒÑ¾­ÁìÈ¡|\"resBusiCode\":15/)) {
-              merge.JRSteel.notify = "¾©¶«½ğÈÚ-¸ÖéG: Ê§°Ü, Ô­Òò: ÒÑÇ©¹ı ??"
-            } else if (data.match(/Î´ÊµÃû/)) {
-              merge.JRSteel.notify = "¾©¶«½ğÈÚ-¸ÖéG: Ê§°Ü, ÕËºÅÎ´ÊµÃû ??"
-            } else if (data.match(/(\"resultCode\":3|ÇëÏÈµÇÂ¼)/)) {
-              merge.JRSteel.notify = "¾©¶«½ğÈÚ-¸ÖéG: Ê§°Ü, Ô­Òò: CookieÊ§Ğ§??"
+            if (data.match(/å·²ç»é¢†å–|\"resBusiCode\":15/)) {
+              merge.JRSteel.notify = "äº¬ä¸œé‡‘è-é’¢é•š: å¤±è´¥, åŸå› : å·²ç­¾è¿‡ ??"
+            } else if (data.match(/æœªå®å/)) {
+              merge.JRSteel.notify = "äº¬ä¸œé‡‘è-é’¢é•š: å¤±è´¥, è´¦å·æœªå®å ??"
+            } else if (data.match(/(\"resultCode\":3|è¯·å…ˆç™»å½•)/)) {
+              merge.JRSteel.notify = "äº¬ä¸œé‡‘è-é’¢é•š: å¤±è´¥, åŸå› : Cookieå¤±æ•ˆ??"
             } else {
-              merge.JRSteel.notify = "¾©¶«½ğÈÚ-¸ÖéG: Ê§°Ü, Ô­Òò: Î´Öª ??"
+              merge.JRSteel.notify = "äº¬ä¸œé‡‘è-é’¢é•š: å¤±è´¥, åŸå› : æœªçŸ¥ ??"
             }
           }
         } catch (eor) {
-          $nobyda.AnError("¾©¶«½ğÈÚ-¸ÖéG", "JRSteel", eor, response, data)
+          $nobyda.AnError("äº¬ä¸œé‡‘è-é’¢é•š", "JRSteel", eor, response, data)
         } finally {
           resolve()
         }
@@ -583,41 +583,41 @@ function JingDongShake(s) {
             const cc = JSON.parse(data)
             const also = merge.JDShake.notify ? true : false
             if (data.match(/prize/)) {
-              console.log("\n" + "¾©¶«ÉÌ³Ç-Ò¡Ò»Ò¡Ç©µ½³É¹¦ " + Details)
+              console.log("\n" + "äº¬ä¸œå•†åŸ-æ‘‡ä¸€æ‘‡ç­¾åˆ°æˆåŠŸ " + Details)
               merge.JDShake.success += 1
               if (cc.data.prizeBean) {
                 merge.JDShake.bean += cc.data.prizeBean.count || 0
-                merge.JDShake.notify += `${also?`\n`:``}¾©¶«ÉÌ³Ç-Ò¡Ò¡: ${also?`¶à´Î`:`³É¹¦`}, Ã÷Ï¸: ${merge.JDShake.bean || `ÎŞ`}¾©¶¹ ??`
+                merge.JDShake.notify += `${also?`\n`:``}äº¬ä¸œå•†åŸ-æ‘‡æ‘‡: ${also?`å¤šæ¬¡`:`æˆåŠŸ`}, æ˜ç»†: ${merge.JDShake.bean || `æ— `}äº¬è±† ??`
               } else if (cc.data.prizeCoupon) {
-                merge.JDShake.notify += `${also?`\n`:``}¾©¶«ÉÌ³Ç-Ò¡Ò¡: ${also?`¶à´Î, `:``}»ñµÃÂú${cc.data.prizeCoupon.quota}¼õ${cc.data.prizeCoupon.discount}ÓÅ»İÈ¯¡ú ${cc.data.prizeCoupon.limitStr}`
+                merge.JDShake.notify += `${also?`\n`:``}äº¬ä¸œå•†åŸ-æ‘‡æ‘‡: ${also?`å¤šæ¬¡, `:``}è·å¾—æ»¡${cc.data.prizeCoupon.quota}å‡${cc.data.prizeCoupon.discount}ä¼˜æƒ åˆ¸â†’ ${cc.data.prizeCoupon.limitStr}`
               } else {
-                merge.JDShake.notify += `${also?`\n`:``}¾©¶«ÉÌ³Ç-Ò¡Ò¡: ³É¹¦, Ã÷Ï¸: Î´Öª ??${also?` (¶à´Î)`:``}`
+                merge.JDShake.notify += `${also?`\n`:``}äº¬ä¸œå•†åŸ-æ‘‡æ‘‡: æˆåŠŸ, æ˜ç»†: æœªçŸ¥ ??${also?` (å¤šæ¬¡)`:``}`
               }
               if (cc.data.luckyBox.freeTimes != 0) {
                 await JingDongShake(s)
               }
             } else {
-              console.log("\n" + "¾©¶«ÉÌ³Ç-Ò¡Ò»Ò¡Ç©µ½Ê§°Ü " + Details)
+              console.log("\n" + "äº¬ä¸œå•†åŸ-æ‘‡ä¸€æ‘‡ç­¾åˆ°å¤±è´¥ " + Details)
               if (data.match(/true/)) {
-                merge.JDShake.notify += `${also?`\n`:``}¾©¶«ÉÌ³Ç-Ò¡Ò¡: ³É¹¦, Ã÷Ï¸: ÎŞ½±Àø ??${also?` (¶à´Î)`:``}`
+                merge.JDShake.notify += `${also?`\n`:``}äº¬ä¸œå•†åŸ-æ‘‡æ‘‡: æˆåŠŸ, æ˜ç»†: æ— å¥–åŠ± ??${also?` (å¤šæ¬¡)`:``}`
                 merge.JDShake.success += 1
                 if (cc.data.luckyBox.freeTimes != 0) {
                   await JingDongShake(s)
                 }
               } else {
                 merge.JDShake.fail = 1
-                if (data.match(/(ÎŞÃâ·Ñ|8000005|9000005)/)) {
-                  merge.JDShake.notify = "¾©¶«ÉÌ³Ç-Ò¡Ò¡: Ê§°Ü, Ô­Òò: ÒÑÒ¡¹ı ??"
-                } else if (data.match(/(Î´µÇÂ¼|101)/)) {
-                  merge.JDShake.notify = "¾©¶«ÉÌ³Ç-Ò¡Ò¡: Ê§°Ü, Ô­Òò: CookieÊ§Ğ§??"
+                if (data.match(/(æ— å…è´¹|8000005|9000005)/)) {
+                  merge.JDShake.notify = "äº¬ä¸œå•†åŸ-æ‘‡æ‘‡: å¤±è´¥, åŸå› : å·²æ‘‡è¿‡ ??"
+                } else if (data.match(/(æœªç™»å½•|101)/)) {
+                  merge.JDShake.notify = "äº¬ä¸œå•†åŸ-æ‘‡æ‘‡: å¤±è´¥, åŸå› : Cookieå¤±æ•ˆ??"
                 } else {
-                  merge.JDShake.notify += `${also?`\n`:``}¾©¶«ÉÌ³Ç-Ò¡Ò¡: Ê§°Ü, Ô­Òò: Î´Öª ??${also?` (¶à´Î)`:``}`
+                  merge.JDShake.notify += `${also?`\n`:``}äº¬ä¸œå•†åŸ-æ‘‡æ‘‡: å¤±è´¥, åŸå› : æœªçŸ¥ ??${also?` (å¤šæ¬¡)`:``}`
                 }
               }
             }
           }
         } catch (eor) {
-          $nobyda.AnError("¾©¶«ÉÌ³Ç-Ò¡Ò¡", "JDShake", eor, response, data)
+          $nobyda.AnError("äº¬ä¸œå•†åŸ-æ‘‡æ‘‡", "JDShake", eor, response, data)
         } finally {
           resolve()
         }
@@ -645,7 +645,7 @@ function JDUserSignPre1(s, key, title, acData, ask) {
         Cookie: KEY
       },
       opts: {
-        'filter': 'try{var od=JSON.parse(body);var params=(od.floatLayerList||[]).filter(o=>o.params&&o.params.match(/enActK/)).map(o=>o.params).pop()||(od.floorList||[]).filter(o=>o.template=="signIn"&&o.signInfos&&o.signInfos.params&&o.signInfos.params.match(/enActK/)).map(o=>o.signInfos&&o.signInfos.params).pop();var tId=(od.floorList||[]).filter(o=>o.boardParams&&o.boardParams.turnTableId).map(o=>o.boardParams.turnTableId).pop();var page=od.paginationFlrs;return JSON.stringify({qxAct:params||null,qxTid:tId||null,qxPage:page||null})}catch(e){return `=> ¹ıÂËÆ÷·¢Éú´íÎó: ${e.message}`}'
+        'filter': 'try{var od=JSON.parse(body);var params=(od.floatLayerList||[]).filter(o=>o.params&&o.params.match(/enActK/)).map(o=>o.params).pop()||(od.floorList||[]).filter(o=>o.template=="signIn"&&o.signInfos&&o.signInfos.params&&o.signInfos.params.match(/enActK/)).map(o=>o.signInfos&&o.signInfos.params).pop();var tId=(od.floorList||[]).filter(o=>o.boardParams&&o.boardParams.turnTableId).map(o=>o.boardParams.turnTableId).pop();var page=od.paginationFlrs;return JSON.stringify({qxAct:params||null,qxTid:tId||null,qxPage:page||null})}catch(e){return `=> è¿‡æ»¤å™¨å‘ç”Ÿé”™è¯¯: ${e.message}`}'
       },
       body: `body=${encodeURIComponent(`{"activityId":"${acData}"${ask?`,"paginationParam":"2","paginationFlrs":"${ask}"`:``}}`)}`
     };
@@ -657,50 +657,50 @@ function JDUserSignPre1(s, key, title, acData, ask) {
           const od = JSON.parse(data || '{}');
           const turnTableId = od.qxTid || (od.floorList || []).filter(o => o.boardParams && o.boardParams.turnTableId).map(o => o.boardParams.turnTableId).pop();
           const page = od.qxPage || od.paginationFlrs;
-          if (data.match(/enActK/)) { // º¬ÓĞÇ©µ½»î¶¯Êı¾İ
+          if (data.match(/enActK/)) { // å«æœ‰ç­¾åˆ°æ´»åŠ¨æ•°æ®
             let params = od.qxAct || (od.floatLayerList || []).filter(o => o.params && o.params.match(/enActK/)).map(o => o.params).pop()
-            if (!params) { // µÚÒ»´¦ÕÒµ½Ç©µ½ËùĞèÊı¾İ
-              // floatLayerListÎ´ÕÒµ½Ç©µ½ËùĞèÊı¾İ£¬´ÓfloorListÖĞ²éÕÒ
+            if (!params) { // ç¬¬ä¸€å¤„æ‰¾åˆ°ç­¾åˆ°æ‰€éœ€æ•°æ®
+              // floatLayerListæœªæ‰¾åˆ°ç­¾åˆ°æ‰€éœ€æ•°æ®ï¼Œä»floorListä¸­æŸ¥æ‰¾
               let signInfo = (od.floorList || []).filter(o => o.template == 'signIn' && o.signInfos && o.signInfos.params && o.signInfos.params.match(/enActK/))
                 .map(o => o.signInfos).pop();
               if (signInfo) {
                 if (signInfo.signStat == '1') {
-                  console.log(`\n${title}ÖØ¸´Ç©µ½`)
-                  merge[key].notify = `${title}: Ê§°Ü, Ô­Òò: ÒÑÇ©¹ı ??`
+                  console.log(`\n${title}é‡å¤ç­¾åˆ°`)
+                  merge[key].notify = `${title}: å¤±è´¥, åŸå› : å·²ç­¾è¿‡ ??`
                   merge[key].fail = 1
                 } else {
                   params = signInfo.params;
                 }
               } else {
-                merge[key].notify = `${title}: Ê§°Ü, »î¶¯²éÕÒÒì³£ ??`
+                merge[key].notify = `${title}: å¤±è´¥, æ´»åŠ¨æŸ¥æ‰¾å¼‚å¸¸ ??`
                 merge[key].fail = 1
               }
             }
             if (params) {
               return resolve({
                 params: params
-              }); // Ö´ĞĞÇ©µ½´¦Àí
+              }); // æ‰§è¡Œç­¾åˆ°å¤„ç†
             }
-          } else if (turnTableId) { // ÎŞÇ©µ½Êı¾İ, µ«º¬ÓĞ¹Ø×¢µêÆÌÇ©µ½
+          } else if (turnTableId) { // æ— ç­¾åˆ°æ•°æ®, ä½†å«æœ‰å…³æ³¨åº—é“ºç­¾åˆ°
             const boxds = $nobyda.read("JD_Follow_disable") === "false" ? false : true
             if (boxds) {
-              console.log(`\n${title}¹Ø×¢µêÆÌ`)
+              console.log(`\n${title}å…³æ³¨åº—é“º`)
               return resolve(parseInt(turnTableId))
             } else {
-              merge[key].notify = `${title}: Ê§°Ü, ĞèÒª¹Ø×¢µêÆÌ ??`
+              merge[key].notify = `${title}: å¤±è´¥, éœ€è¦å…³æ³¨åº—é“º ??`
               merge[key].fail = 1
             }
-          } else if (page && !ask) { // ÎŞÇ©µ½Êı¾İ, ³¢ÊÔ´ø²Î²éÑ¯
+          } else if (page && !ask) { // æ— ç­¾åˆ°æ•°æ®, å°è¯•å¸¦å‚æŸ¥è¯¢
             const boxds = $nobyda.read("JD_Retry_disable") === "false" ? false : true
             if (boxds) {
-              console.log(`\n${title}¶ş´Î²éÑ¯`)
+              console.log(`\n${title}äºŒæ¬¡æŸ¥è¯¢`)
               return resolve(page)
             } else {
-              merge[key].notify = `${title}: Ê§°Ü, Çë³¢ÊÔ¿ªÆôÔöÇ¿ ??`
+              merge[key].notify = `${title}: å¤±è´¥, è¯·å°è¯•å¼€å¯å¢å¼º ??`
               merge[key].fail = 1
             }
           } else {
-            merge[key].notify = `${title}: Ê§°Ü, ${!data ? `ĞèÒªÊÖ¶¯Ö´ĞĞ` : `²»º¬»î¶¯Êı¾İ`} ??`
+            merge[key].notify = `${title}: å¤±è´¥, ${!data ? `éœ€è¦æ‰‹åŠ¨æ‰§è¡Œ` : `ä¸å«æ´»åŠ¨æ•°æ®`} ??`
             merge[key].fail = 1
           }
         }
@@ -736,28 +736,28 @@ function JDUserSignPre2(s, key, title, acData) {
           const act = data.match(/\"params\":\"\{\\\"enActK.+?\\\"\}\"/)
           const turnTable = data.match(/\"turnTableId\":\"(\d+)\"/)
           const page = data.match(/\"paginationFlrs\":\"(\[\[.+?\]\])\"/)
-          if (act) { // º¬ÓĞÇ©µ½»î¶¯Êı¾İ
+          if (act) { // å«æœ‰ç­¾åˆ°æ´»åŠ¨æ•°æ®
             return resolve(act)
-          } else if (turnTable) { // ÎŞÇ©µ½Êı¾İ, µ«º¬ÓĞ¹Ø×¢µêÆÌÇ©µ½
+          } else if (turnTable) { // æ— ç­¾åˆ°æ•°æ®, ä½†å«æœ‰å…³æ³¨åº—é“ºç­¾åˆ°
             const boxds = $nobyda.read("JD_Follow_disable") === "false" ? false : true
             if (boxds) {
-              console.log(`\n${title}¹Ø×¢µêÆÌ`)
+              console.log(`\n${title}å…³æ³¨åº—é“º`)
               return resolve(parseInt(turnTable[1]))
             } else {
-              merge[key].notify = `${title}: Ê§°Ü, ĞèÒª¹Ø×¢µêÆÌ ??`
+              merge[key].notify = `${title}: å¤±è´¥, éœ€è¦å…³æ³¨åº—é“º ??`
               merge[key].fail = 1
             }
-          } else if (page) { // ÎŞÇ©µ½Êı¾İ, ³¢ÊÔ´ø²Î²éÑ¯
+          } else if (page) { // æ— ç­¾åˆ°æ•°æ®, å°è¯•å¸¦å‚æŸ¥è¯¢
             const boxds = $nobyda.read("JD_Retry_disable") === "false" ? false : true
             if (boxds) {
-              console.log(`\n${title}¶ş´Î²éÑ¯`)
+              console.log(`\n${title}äºŒæ¬¡æŸ¥è¯¢`)
               return resolve(page[1])
             } else {
-              merge[key].notify = `${title}: Ê§°Ü, Çë³¢ÊÔ¿ªÆôÔöÇ¿ ??`
+              merge[key].notify = `${title}: å¤±è´¥, è¯·å°è¯•å¼€å¯å¢å¼º ??`
               merge[key].fail = 1
             }
           } else {
-            merge[key].notify = `${title}: Ê§°Ü, ${!data ? `ĞèÒªÊÖ¶¯Ö´ĞĞ` : `²»º¬»î¶¯Êı¾İ`} ??`
+            merge[key].notify = `${title}: å¤±è´¥, ${!data ? `éœ€è¦æ‰‹åŠ¨æ‰§è¡Œ` : `ä¸å«æ´»åŠ¨æ•°æ®`} ??`
             merge[key].fail = 1
           }
         }
@@ -792,24 +792,24 @@ function JDUserSign1(s, key, title, body) {
             throw new Error(error)
           } else {
             const Details = LogDetails ? `response:\n${data}` : '';
-            if (data.match(/Ç©µ½³É¹¦/)) {
-              console.log(`\n${title}Ç©µ½³É¹¦(1)${Details}`)
-              if (data.match(/\"text\":\"\d+¾©¶¹\"/)) {
-                merge[key].bean = data.match(/\"text\":\"(\d+)¾©¶¹\"/)[1]
+            if (data.match(/ç­¾åˆ°æˆåŠŸ/)) {
+              console.log(`\n${title}ç­¾åˆ°æˆåŠŸ(1)${Details}`)
+              if (data.match(/\"text\":\"\d+äº¬è±†\"/)) {
+                merge[key].bean = data.match(/\"text\":\"(\d+)äº¬è±†\"/)[1]
               }
-              merge[key].notify = `${title}: ³É¹¦, Ã÷Ï¸: ${merge[key].bean || 'ÎŞ'}¾©¶¹ ??`
+              merge[key].notify = `${title}: æˆåŠŸ, æ˜ç»†: ${merge[key].bean || 'æ— '}äº¬è±† ??`
               merge[key].success = 1
             } else {
-              console.log(`\n${title}Ç©µ½Ê§°Ü(1)${Details}`)
-              if (data.match(/(ÒÑÇ©µ½|ÒÑÁìÈ¡)/)) {
-                merge[key].notify = `${title}: Ê§°Ü, Ô­Òò: ÒÑÇ©¹ı ??`
-              } else if (data.match(/(²»´æÔÚ|ÒÑ½áÊø|Î´¿ªÊ¼)/)) {
-                merge[key].notify = `${title}: Ê§°Ü, Ô­Òò: »î¶¯ÒÑ½áÊø ??`
+              console.log(`\n${title}ç­¾åˆ°å¤±è´¥(1)${Details}`)
+              if (data.match(/(å·²ç­¾åˆ°|å·²é¢†å–)/)) {
+                merge[key].notify = `${title}: å¤±è´¥, åŸå› : å·²ç­¾è¿‡ ??`
+              } else if (data.match(/(ä¸å­˜åœ¨|å·²ç»“æŸ|æœªå¼€å§‹)/)) {
+                merge[key].notify = `${title}: å¤±è´¥, åŸå› : æ´»åŠ¨å·²ç»“æŸ ??`
               } else if (data.match(/\"code\":\"?3\"?/)) {
-                merge[key].notify = `${title}: Ê§°Ü, Ô­Òò: CookieÊ§Ğ§??`
+                merge[key].notify = `${title}: å¤±è´¥, åŸå› : Cookieå¤±æ•ˆ??`
               } else {
                 const ng = data.match(/\"(errorMessage|subCodeMsg)\":\"(.+?)\"/)
-                merge[key].notify = `${title}: Ê§°Ü, ${ng?ng[2]:`Ô­Òò: Î´Öª`} ??`
+                merge[key].notify = `${title}: å¤±è´¥, ${ng?ng[2]:`åŸå› : æœªçŸ¥`} ??`
               }
               merge[key].fail = 1
             }
@@ -853,26 +853,26 @@ async function JDUserSign2(s, key, title, tid) {
           } else {
             const Details = LogDetails ? `response:\n${data}` : '';
             if (data.match(/\"success\":true/)) {
-              console.log(`\n${title}Ç©µ½³É¹¦(2)${Details}`)
+              console.log(`\n${title}ç­¾åˆ°æˆåŠŸ(2)${Details}`)
               if (data.match(/\"jdBeanQuantity\":\d+/)) {
                 merge[key].bean = data.match(/\"jdBeanQuantity\":(\d+)/)[1]
               }
-              merge[key].notify = `${title}: ³É¹¦, Ã÷Ï¸: ${merge[key].bean || 'ÎŞ'}¾©¶¹ ??`
+              merge[key].notify = `${title}: æˆåŠŸ, æ˜ç»†: ${merge[key].bean || 'æ— '}äº¬è±† ??`
               merge[key].success = 1
             } else {
-              const captcha = /Çë½øĞĞÑéÖ¤/.test(data);
-              if (data.match(/(ÒÑ¾­Ç©µ½|ÒÑ¾­ÁìÈ¡)/)) {
-                merge[key].notify = `${title}: Ê§°Ü, Ô­Òò: ÒÑÇ©¹ı ??`
-              } else if (data.match(/(²»´æÔÚ|ÒÑ½áÊø|Î´¿ªÊ¼)/)) {
-                merge[key].notify = `${title}: Ê§°Ü, Ô­Òò: »î¶¯ÒÑ½áÊø ??`
-              } else if (data.match(/(Ã»ÓĞµÇÂ¼|B0001)/)) {
-                merge[key].notify = `${title}: Ê§°Ü, Ô­Òò: CookieÊ§Ğ§??`
+              const captcha = /è¯·è¿›è¡ŒéªŒè¯/.test(data);
+              if (data.match(/(å·²ç»ç­¾åˆ°|å·²ç»é¢†å–)/)) {
+                merge[key].notify = `${title}: å¤±è´¥, åŸå› : å·²ç­¾è¿‡ ??`
+              } else if (data.match(/(ä¸å­˜åœ¨|å·²ç»“æŸ|æœªå¼€å§‹)/)) {
+                merge[key].notify = `${title}: å¤±è´¥, åŸå› : æ´»åŠ¨å·²ç»“æŸ ??`
+              } else if (data.match(/(æ²¡æœ‰ç™»å½•|B0001)/)) {
+                merge[key].notify = `${title}: å¤±è´¥, åŸå› : Cookieå¤±æ•ˆ??`
               } else if (!captcha) {
                 const ng = data.match(/\"(errorMessage|subCodeMsg)\":\"(.+?)\"/)
-                merge[key].notify = `${title}: Ê§°Ü, ${ng?ng[2]:`Ô­Òò: Î´Öª`} ??`
+                merge[key].notify = `${title}: å¤±è´¥, ${ng?ng[2]:`åŸå› : æœªçŸ¥`} ??`
               }
               if (!captcha) merge[key].fail = 1;
-              console.log(`\n${title}Ç©µ½Ê§°Ü(2)${captcha?`\nĞèÒªÆ´Í¼ÑéÖ¤, Ìø¹ıÍ¨Öª¼ÇÂ¼ ??`:``}${Details}`)
+              console.log(`\n${title}ç­¾åˆ°å¤±è´¥(2)${captcha?`\néœ€è¦æ‹¼å›¾éªŒè¯, è·³è¿‡é€šçŸ¥è®°å½• ??`:``}${Details}`)
             }
           }
         } catch (eor) {
@@ -906,28 +906,28 @@ function JDFlashSale(s) {
             const Details = LogDetails ? "response:\n" + data : '';
             const cc = JSON.parse(data)
             if (cc.result && cc.result.code == 0) {
-              console.log("\n" + "¾©¶«ÉÌ³Ç-ÉÁ¹ºÇ©µ½³É¹¦ " + Details)
+              console.log("\n" + "äº¬ä¸œå•†åŸ-é—ªè´­ç­¾åˆ°æˆåŠŸ " + Details)
               merge.JDFSale.bean = cc.result.jdBeanNum || 0
-              merge.JDFSale.notify = "¾©¶«ÉÌ³Ç-ÉÁ¹º: ³É¹¦, Ã÷Ï¸: " + (merge.JDFSale.bean || "ÎŞ") + "¾©¶¹ ??"
+              merge.JDFSale.notify = "äº¬ä¸œå•†åŸ-é—ªè´­: æˆåŠŸ, æ˜ç»†: " + (merge.JDFSale.bean || "æ— ") + "äº¬è±† ??"
               merge.JDFSale.success = 1
             } else {
-              console.log("\n" + "¾©¶«ÉÌ³Ç-ÉÁ¹ºÇ©µ½Ê§°Ü " + Details)
-              if (data.match(/(ÒÑÇ©µ½|ÒÑÁìÈ¡|\"2005\")/)) {
-                merge.JDFSale.notify = "¾©¶«ÉÌ³Ç-ÉÁ¹º: Ê§°Ü, Ô­Òò: ÒÑÇ©¹ı ??"
-              } else if (data.match(/²»´æÔÚ|ÒÑ½áÊø|\"2008\"|\"3001\"/)) {
-                await FlashSaleDivide(s); //¹Ï·Ö¾©¶¹
+              console.log("\n" + "äº¬ä¸œå•†åŸ-é—ªè´­ç­¾åˆ°å¤±è´¥ " + Details)
+              if (data.match(/(å·²ç­¾åˆ°|å·²é¢†å–|\"2005\")/)) {
+                merge.JDFSale.notify = "äº¬ä¸œå•†åŸ-é—ªè´­: å¤±è´¥, åŸå› : å·²ç­¾è¿‡ ??"
+              } else if (data.match(/ä¸å­˜åœ¨|å·²ç»“æŸ|\"2008\"|\"3001\"/)) {
+                await FlashSaleDivide(s); //ç“œåˆ†äº¬è±†
                 return
               } else if (data.match(/(\"code\":\"3\"|\"1003\")/)) {
-                merge.JDFSale.notify = "¾©¶«ÉÌ³Ç-ÉÁ¹º: Ê§°Ü, Ô­Òò: CookieÊ§Ğ§??"
+                merge.JDFSale.notify = "äº¬ä¸œå•†åŸ-é—ªè´­: å¤±è´¥, åŸå› : Cookieå¤±æ•ˆ??"
               } else {
                 const msg = data.match(/\"msg\":\"([\u4e00-\u9fa5].+?)\"/)
-                merge.JDFSale.notify = `¾©¶«ÉÌ³Ç-ÉÁ¹º: Ê§°Ü, ${msg ? msg[1] : `Ô­Òò: Î´Öª`} ??`
+                merge.JDFSale.notify = `äº¬ä¸œå•†åŸ-é—ªè´­: å¤±è´¥, ${msg ? msg[1] : `åŸå› : æœªçŸ¥`} ??`
               }
               merge.JDFSale.fail = 1
             }
           }
         } catch (eor) {
-          $nobyda.AnError("¾©¶«ÉÌ³Ç-ÉÁ¹º", "JDFSale", eor, response, data)
+          $nobyda.AnError("äº¬ä¸œå•†åŸ-é—ªè´­", "JDFSale", eor, response, data)
         } finally {
           resolve()
         }
@@ -957,25 +957,25 @@ function FlashSaleDivide(s) {
             if (cc.result.code == 0) {
               merge.JDFSale.success = 1
               merge.JDFSale.bean = cc.result.jdBeanNum || 0
-              merge.JDFSale.notify = "¾©¶«ÉÁ¹º-¹Ï·Ö: ³É¹¦, Ã÷Ï¸: " + (merge.JDFSale.bean || "ÎŞ") + "¾©¶¹ ??"
-              console.log("\n" + "¾©¶«ÉÁ¹º-¹Ï·ÖÇ©µ½³É¹¦ " + Details)
+              merge.JDFSale.notify = "äº¬ä¸œé—ªè´­-ç“œåˆ†: æˆåŠŸ, æ˜ç»†: " + (merge.JDFSale.bean || "æ— ") + "äº¬è±† ??"
+              console.log("\n" + "äº¬ä¸œé—ªè´­-ç“œåˆ†ç­¾åˆ°æˆåŠŸ " + Details)
             } else {
               merge.JDFSale.fail = 1
-              console.log("\n" + "¾©¶«ÉÁ¹º-¹Ï·ÖÇ©µ½Ê§°Ü " + Details)
-              if (data.match(/ÒÑ²ÎÓë|ÒÑÁìÈ¡|\"2006\"/)) {
-                merge.JDFSale.notify = "¾©¶«ÉÁ¹º-¹Ï·Ö: Ê§°Ü, Ô­Òò: ÒÑ¹Ï·Ö ??"
-              } else if (data.match(/²»´æÔÚ|ÒÑ½áÊø|Î´¿ªÊ¼|\"2008\"|\"2012\"/)) {
-                merge.JDFSale.notify = "¾©¶«ÉÁ¹º-¹Ï·Ö: Ê§°Ü, Ô­Òò: »î¶¯ÒÑ½áÊø ??"
-              } else if (data.match(/\"code\":\"1003\"|Î´»ñÈ¡/)) {
-                merge.JDFSale.notify = "¾©¶«ÉÁ¹º-¹Ï·Ö: Ê§°Ü, Ô­Òò: CookieÊ§Ğ§??"
+              console.log("\n" + "äº¬ä¸œé—ªè´­-ç“œåˆ†ç­¾åˆ°å¤±è´¥ " + Details)
+              if (data.match(/å·²å‚ä¸|å·²é¢†å–|\"2006\"/)) {
+                merge.JDFSale.notify = "äº¬ä¸œé—ªè´­-ç“œåˆ†: å¤±è´¥, åŸå› : å·²ç“œåˆ† ??"
+              } else if (data.match(/ä¸å­˜åœ¨|å·²ç»“æŸ|æœªå¼€å§‹|\"2008\"|\"2012\"/)) {
+                merge.JDFSale.notify = "äº¬ä¸œé—ªè´­-ç“œåˆ†: å¤±è´¥, åŸå› : æ´»åŠ¨å·²ç»“æŸ ??"
+              } else if (data.match(/\"code\":\"1003\"|æœªè·å–/)) {
+                merge.JDFSale.notify = "äº¬ä¸œé—ªè´­-ç“œåˆ†: å¤±è´¥, åŸå› : Cookieå¤±æ•ˆ??"
               } else {
                 const msg = data.match(/\"msg\":\"([\u4e00-\u9fa5].+?)\"/)
-                merge.JDFSale.notify = `¾©¶«ÉÁ¹º-¹Ï·Ö: Ê§°Ü, ${msg ? msg[1] : `Ô­Òò: Î´Öª`} ??`
+                merge.JDFSale.notify = `äº¬ä¸œé—ªè´­-ç“œåˆ†: å¤±è´¥, ${msg ? msg[1] : `åŸå› : æœªçŸ¥`} ??`
               }
             }
           }
         } catch (eor) {
-          $nobyda.AnError("¾©¶«ÉÁ¹º-¹Ï·Ö", "JDFSale", eor, response, data)
+          $nobyda.AnError("äº¬ä¸œé—ªè´­-ç“œåˆ†", "JDFSale", eor, response, data)
         } finally {
           resolve()
         }
@@ -1005,27 +1005,27 @@ function JingDongCash(s) {
             const Details = LogDetails ? "response:\n" + data : '';
             const cc = JSON.parse(data)
             if (cc.busiCode == "0") {
-              console.log("\n" + "¾©¶«ÏÖ½ğ-ºì°üÇ©µ½³É¹¦ " + Details)
+              console.log("\n" + "äº¬ä¸œç°é‡‘-çº¢åŒ…ç­¾åˆ°æˆåŠŸ " + Details)
               merge.JDCash.success = 1
               merge.JDCash.Cash = cc.result.signResult.signData.amount || 0
-              merge.JDCash.notify = `¾©¶«ÏÖ½ğ-ºì°ü: ³É¹¦, Ã÷Ï¸: ${merge.JDCash.Cash || `ÎŞ`}ºì°ü ??`
+              merge.JDCash.notify = `äº¬ä¸œç°é‡‘-çº¢åŒ…: æˆåŠŸ, æ˜ç»†: ${merge.JDCash.Cash || `æ— `}çº¢åŒ… ??`
             } else {
-              console.log("\n" + "¾©¶«ÏÖ½ğ-ºì°üÇ©µ½Ê§°Ü " + Details)
+              console.log("\n" + "äº¬ä¸œç°é‡‘-çº¢åŒ…ç­¾åˆ°å¤±è´¥ " + Details)
               merge.JDCash.fail = 1
-              if (data.match(/(\"busiCode\":\"1002\"|Íê³ÉÇ©µ½)/)) {
-                merge.JDCash.notify = "¾©¶«ÏÖ½ğ-ºì°ü: Ê§°Ü, Ô­Òò: ÒÑÇ©¹ı ??"
-              } else if (data.match(/(²»´æÔÚ|ÒÑ½áÊø)/)) {
-                merge.JDCash.notify = "¾©¶«ÏÖ½ğ-ºì°ü: Ê§°Ü, Ô­Òò: »î¶¯ÒÑ½áÊø ??"
-              } else if (data.match(/(\"busiCode\":\"3\"|Î´µÇÂ¼)/)) {
-                merge.JDCash.notify = "¾©¶«ÏÖ½ğ-ºì°ü: Ê§°Ü, Ô­Òò: CookieÊ§Ğ§??"
+              if (data.match(/(\"busiCode\":\"1002\"|å®Œæˆç­¾åˆ°)/)) {
+                merge.JDCash.notify = "äº¬ä¸œç°é‡‘-çº¢åŒ…: å¤±è´¥, åŸå› : å·²ç­¾è¿‡ ??"
+              } else if (data.match(/(ä¸å­˜åœ¨|å·²ç»“æŸ)/)) {
+                merge.JDCash.notify = "äº¬ä¸œç°é‡‘-çº¢åŒ…: å¤±è´¥, åŸå› : æ´»åŠ¨å·²ç»“æŸ ??"
+              } else if (data.match(/(\"busiCode\":\"3\"|æœªç™»å½•)/)) {
+                merge.JDCash.notify = "äº¬ä¸œç°é‡‘-çº¢åŒ…: å¤±è´¥, åŸå› : Cookieå¤±æ•ˆ??"
               } else {
                 const msg = data.split(/\"msg\":\"([\u4e00-\u9fa5].+?)\"/)[1];
-                merge.JDCash.notify = `¾©¶«ÏÖ½ğ-ºì°ü: Ê§°Ü, ${msg||`Ô­Òò: Î´Öª`} ??`
+                merge.JDCash.notify = `äº¬ä¸œç°é‡‘-çº¢åŒ…: å¤±è´¥, ${msg||`åŸå› : æœªçŸ¥`} ??`
               }
             }
           }
         } catch (eor) {
-          $nobyda.AnError("¾©¶«ÏÖ½ğ-ºì°ü", "JDCash", eor, response, data)
+          $nobyda.AnError("äº¬ä¸œç°é‡‘-çº¢åŒ…", "JDCash", eor, response, data)
         } finally {
           resolve()
         }
@@ -1049,20 +1049,20 @@ function JDMagicCube(s, sign) {
       try {
         if (error) throw new Error(error)
         const Details = LogDetails ? "response:\n" + data : '';
-        console.log(`\n¾©¶«Ä§·½-³¢ÊÔ²éÑ¯»î¶¯(${sign}) ${Details}`)
+        console.log(`\näº¬ä¸œé­”æ–¹-å°è¯•æŸ¥è¯¢æ´»åŠ¨(${sign}) ${Details}`)
         if (data.match(/\"interactionId\":\d+/)) {
           resolve({
             id: data.match(/\"interactionId\":(\d+)/)[1],
             sign: sign || null
           })
-        } else if (data.match(/ÅäÖÃÒì³£/) && sign) {
+        } else if (data.match(/é…ç½®å¼‚å¸¸/) && sign) {
           await JDMagicCube(s, sign == 2 ? 1 : null)
           reject()
         } else {
           resolve(null)
         }
       } catch (eor) {
-        $nobyda.AnError("¾©¶«Ä§·½-²éÑ¯", "JDCube", eor, response, data)
+        $nobyda.AnError("äº¬ä¸œé­”æ–¹-æŸ¥è¯¢", "JDCube", eor, response, data)
         reject()
       }
     })
@@ -1089,30 +1089,30 @@ function JDMagicCubeSign(s, id) {
             const Details = LogDetails ? "response:\n" + data : '';
             const cc = JSON.parse(data)
             if (data.match(/(\"name\":)/)) {
-              console.log("\n" + "¾©¶«ÉÌ³Ç-Ä§·½Ç©µ½³É¹¦ " + Details)
+              console.log("\n" + "äº¬ä¸œå•†åŸ-é­”æ–¹ç­¾åˆ°æˆåŠŸ " + Details)
               merge.JDCube.success = 1
-              if (data.match(/(\"name\":\"¾©¶¹\")/)) {
+              if (data.match(/(\"name\":\"äº¬è±†\")/)) {
                 merge.JDCube.bean = cc.result.lotteryInfo.quantity || 0
-                merge.JDCube.notify = `¾©¶«ÉÌ³Ç-Ä§·½: ³É¹¦, Ã÷Ï¸: ${merge.JDCube.bean || `ÎŞ`}¾©¶¹ ??`
+                merge.JDCube.notify = `äº¬ä¸œå•†åŸ-é­”æ–¹: æˆåŠŸ, æ˜ç»†: ${merge.JDCube.bean || `æ— `}äº¬è±† ??`
               } else {
-                merge.JDCube.notify = `¾©¶«ÉÌ³Ç-Ä§·½: ³É¹¦, Ã÷Ï¸: ${cc.result.lotteryInfo.name || `Î´Öª`} ??`
+                merge.JDCube.notify = `äº¬ä¸œå•†åŸ-é­”æ–¹: æˆåŠŸ, æ˜ç»†: ${cc.result.lotteryInfo.name || `æœªçŸ¥`} ??`
               }
             } else {
-              console.log("\n" + "¾©¶«ÉÌ³Ç-Ä§·½Ç©µ½Ê§°Ü " + Details)
+              console.log("\n" + "äº¬ä¸œå•†åŸ-é­”æ–¹ç­¾åˆ°å¤±è´¥ " + Details)
               merge.JDCube.fail = 1
-              if (data.match(/(Ò»ÉÁ¶ø¹ı|ÒÑÇ©µ½|ÒÑÁìÈ¡)/)) {
-                merge.JDCube.notify = "¾©¶«ÉÌ³Ç-Ä§·½: Ê§°Ü, Ô­Òò: ÎŞ»ú»á ??"
-              } else if (data.match(/(²»´æÔÚ|ÒÑ½áÊø)/)) {
-                merge.JDCube.notify = "¾©¶«ÉÌ³Ç-Ä§·½: Ê§°Ü, Ô­Òò: »î¶¯ÒÑ½áÊø ??"
+              if (data.match(/(ä¸€é—ªè€Œè¿‡|å·²ç­¾åˆ°|å·²é¢†å–)/)) {
+                merge.JDCube.notify = "äº¬ä¸œå•†åŸ-é­”æ–¹: å¤±è´¥, åŸå› : æ— æœºä¼š ??"
+              } else if (data.match(/(ä¸å­˜åœ¨|å·²ç»“æŸ)/)) {
+                merge.JDCube.notify = "äº¬ä¸œå•†åŸ-é­”æ–¹: å¤±è´¥, åŸå› : æ´»åŠ¨å·²ç»“æŸ ??"
               } else if (data.match(/(\"code\":3)/)) {
-                merge.JDCube.notify = "¾©¶«ÉÌ³Ç-Ä§·½: Ê§°Ü, Ô­Òò: CookieÊ§Ğ§??"
+                merge.JDCube.notify = "äº¬ä¸œå•†åŸ-é­”æ–¹: å¤±è´¥, åŸå› : Cookieå¤±æ•ˆ??"
               } else {
-                merge.JDCube.notify = "¾©¶«ÉÌ³Ç-Ä§·½: Ê§°Ü, Ô­Òò: Î´Öª ??"
+                merge.JDCube.notify = "äº¬ä¸œå•†åŸ-é­”æ–¹: å¤±è´¥, åŸå› : æœªçŸ¥ ??"
               }
             }
           }
         } catch (eor) {
-          $nobyda.AnError("¾©¶«ÉÌ³Ç-Ä§·½", "JDCube", eor, response, data)
+          $nobyda.AnError("äº¬ä¸œå•†åŸ-é­”æ–¹", "JDCube", eor, response, data)
         } finally {
           resolve()
         }
@@ -1142,25 +1142,25 @@ function JingDongSubsidy(s) {
             const Details = LogDetails ? "response:\n" + data : '';
             const cc = JSON.parse(data)
             if (cc.resultCode == 0 && cc.resultData.data && cc.resultData.data.thisAmount) {
-              console.log("\n" + "¾©¶«ÉÌ³Ç-½ğÌùÇ©µ½³É¹¦ " + Details)
+              console.log("\n" + "äº¬ä¸œå•†åŸ-é‡‘è´´ç­¾åˆ°æˆåŠŸ " + Details)
               merge.subsidy.subsidy = cc.resultData.data.thisAmountStr
-              merge.subsidy.notify = `¾©¶«ÉÌ³Ç-½ğÌù: ³É¹¦, Ã÷Ï¸: ${merge.subsidy.subsidy||`ÎŞ`}½ğÌù ??`
+              merge.subsidy.notify = `äº¬ä¸œå•†åŸ-é‡‘è´´: æˆåŠŸ, æ˜ç»†: ${merge.subsidy.subsidy||`æ— `}é‡‘è´´ ??`
               merge.subsidy.success = 1
             } else {
-              console.log("\n" + "¾©¶«ÉÌ³Ç-½ğÌùÇ©µ½Ê§°Ü " + Details)
+              console.log("\n" + "äº¬ä¸œå•†åŸ-é‡‘è´´ç­¾åˆ°å¤±è´¥ " + Details)
               merge.subsidy.fail = 1
-              if (data.match(/ÒÑ´æÔÚ|"thisAmount":0/)) {
-                merge.subsidy.notify = "¾©¶«ÉÌ³Ç-½ğÌù: Ê§°Ü, Ô­Òò: ÎŞ½ğÌù ??"
-              } else if (data.match(/ÇëÏÈµÇÂ¼/)) {
-                merge.subsidy.notify = "¾©¶«ÉÌ³Ç-½ğÌù: Ê§°Ü, Ô­Òò: CookieÊ§Ğ§??"
+              if (data.match(/å·²å­˜åœ¨|"thisAmount":0/)) {
+                merge.subsidy.notify = "äº¬ä¸œå•†åŸ-é‡‘è´´: å¤±è´¥, åŸå› : æ— é‡‘è´´ ??"
+              } else if (data.match(/è¯·å…ˆç™»å½•/)) {
+                merge.subsidy.notify = "äº¬ä¸œå•†åŸ-é‡‘è´´: å¤±è´¥, åŸå› : Cookieå¤±æ•ˆ??"
               } else {
                 const msg = data.split(/\"msg\":\"([\u4e00-\u9fa5].+?)\"/)[1];
-                merge.subsidy.notify = `¾©¶«ÉÌ³Ç-½ğÌù: Ê§°Ü, ${msg||`Ô­Òò: Î´Öª`} ??`
+                merge.subsidy.notify = `äº¬ä¸œå•†åŸ-é‡‘è´´: å¤±è´¥, ${msg||`åŸå› : æœªçŸ¥`} ??`
               }
             }
           }
         } catch (eor) {
-          $nobyda.AnError("¾©¶«ÉÌ³Ç-½ğÌù", "subsidy", eor, response, data)
+          $nobyda.AnError("äº¬ä¸œå•†åŸ-é‡‘è´´", "subsidy", eor, response, data)
         } finally {
           resolve()
         }
@@ -1191,15 +1191,15 @@ function JingRongDoll(s, key, title, code, type, num, award, belong) {
             const Details = LogDetails ? "response:\n" + data : '';
             if (cc.resultCode == 0) {
               if (cc.resultData.data.businessData != null) {
-                console.log(`\n${title}²éÑ¯³É¹¦ ${Details}`)
+                console.log(`\n${title}æŸ¥è¯¢æˆåŠŸ ${Details}`)
                 if (cc.resultData.data.businessData.pickStatus == 2) {
                   if (data.match(/\"rewardPrice\":\"\d.*?\"/)) {
                     const JRDoll_bean = data.match(/\"rewardPrice\":\"(\d.*?)\"/)[1]
-                    const JRDoll_type = data.match(/\"rewardName\":\"½ğÌù½±Àø\"/) ? true : false
+                    const JRDoll_type = data.match(/\"rewardName\":\"é‡‘è´´å¥–åŠ±\"/) ? true : false
                     await JingRongDoll(s, key, title, code, '4', JRDoll_bean, JRDoll_type)
                   } else {
                     merge[key].success = 1
-                    merge[key].notify = `${title}: ³É¹¦, Ã÷Ï¸: ÎŞ½±Àø ??`
+                    merge[key].notify = `${title}: æˆåŠŸ, æ˜ç»†: æ— å¥–åŠ± ??`
                   }
                 } else if (code == 'F68B2C3E71' || code == '1DF13833F7') {
                   if (!data.match(/"businessCode":"30\dss?q"/)) {
@@ -1207,44 +1207,44 @@ function JingRongDoll(s, key, title, code, type, num, award, belong) {
                     const ct = data.match(/\"count\":\"?(\d.*?)\"?,/)
                     if (code == 'F68B2C3E71' && belong == 'xianjin') {
                       merge[key].Money = ct ? ct[1] > 9 ? `0.${ct[1]}` : `0.0${ct[1]}` : 0
-                      merge[key].notify = `${title}: ³É¹¦, Ã÷Ï¸: ${merge[key].Money||`ÎŞ`}ÏÖ½ğ ??`
+                      merge[key].notify = `${title}: æˆåŠŸ, æ˜ç»†: ${merge[key].Money||`æ— `}ç°é‡‘ ??`
                     } else if (code == 'F68B2C3E71' && belong == 'jingdou') {
                       merge[key].bean = ct ? ct[1] : 0;
-                      merge[key].notify = `${title}: ³É¹¦, Ã÷Ï¸: ${merge[key].bean||`ÎŞ`}¾©¶¹ ??`
+                      merge[key].notify = `${title}: æˆåŠŸ, æ˜ç»†: ${merge[key].bean||`æ— `}äº¬è±† ??`
                     } else if (code == '1DF13833F7') {
                       merge[key].subsidy = ct ? ct[1] : 0;
-                      merge[key].notify = `${title}: ³É¹¦, Ã÷Ï¸: ${merge[key].subsidy||`ÎŞ`}½ğÌù ??`
+                      merge[key].notify = `${title}: æˆåŠŸ, æ˜ç»†: ${merge[key].subsidy||`æ— `}é‡‘è´´ ??`
                     }
                   } else {
                     const es = cc.resultData.data.businessMsg
                     const ep = cc.resultData.data.businessData.businessMsg
-                    const tp = data.match(/ÒÑÁìÈ¡|300ss?q/) ? `ÒÑÇ©¹ı` : `${ep||es||cc.resultMsg||`Î´Öª`}`
-                    merge[key].notify = `${title}: Ê§°Ü, Ô­Òò: ${tp} ??`
+                    const tp = data.match(/å·²é¢†å–|300ss?q/) ? `å·²ç­¾è¿‡` : `${ep||es||cc.resultMsg||`æœªçŸ¥`}`
+                    merge[key].notify = `${title}: å¤±è´¥, åŸå› : ${tp} ??`
                     merge[key].fail = 1
                   }
                 } else {
-                  merge[key].notify = `${title}: Ê§°Ü, Ô­Òò: ÒÑÇ©¹ı ??`;
+                  merge[key].notify = `${title}: å¤±è´¥, åŸå› : å·²ç­¾è¿‡ ??`;
                   merge[key].fail = 1
                 }
               } else if (cc.resultData.data.businessCode == 200) {
-                console.log(`\n${title}Ç©µ½³É¹¦ ${Details}`)
+                console.log(`\n${title}ç­¾åˆ°æˆåŠŸ ${Details}`)
                 if (!award) {
                   merge[key].bean = num ? num.match(/\d+/)[0] : 0
                 } else {
                   merge[key].subsidy = num || 0
                 }
                 merge[key].success = 1
-                merge[key].notify = `${title}: ³É¹¦, Ã÷Ï¸: ${(award?num:merge[key].bean)||`ÎŞ`}${award?`½ğÌù ??`:`¾©¶¹ ??`}`
+                merge[key].notify = `${title}: æˆåŠŸ, æ˜ç»†: ${(award?num:merge[key].bean)||`æ— `}${award?`é‡‘è´´ ??`:`äº¬è±† ??`}`
               } else {
-                console.log(`\n${title}ÁìÈ¡Òì³£ ${Details}`)
-                if (num) console.log(`\n${title} Çë³¢ÊÔÊÖ¶¯ÁìÈ¡, Ô¤¼Æ¿ÉµÃ${num}${award?`½ğÌù`:`¾©¶¹`}: \nhttps://uf1.jr.jd.com/up/redEnvelopes/index.html?actCode=${code}\n`);
+                console.log(`\n${title}é¢†å–å¼‚å¸¸ ${Details}`)
+                if (num) console.log(`\n${title} è¯·å°è¯•æ‰‹åŠ¨é¢†å–, é¢„è®¡å¯å¾—${num}${award?`é‡‘è´´`:`äº¬è±†`}: \nhttps://uf1.jr.jd.com/up/redEnvelopes/index.html?actCode=${code}\n`);
                 merge[key].fail = 1;
-                merge[key].notify = `${title}: Ê§°Ü, Ô­Òò: ÁìÈ¡Òì³£ ??`;
+                merge[key].notify = `${title}: å¤±è´¥, åŸå› : é¢†å–å¼‚å¸¸ ??`;
               }
             } else {
-              console.log(`\n${title}Ç©µ½Ê§°Ü ${Details}`)
+              console.log(`\n${title}ç­¾åˆ°å¤±è´¥ ${Details}`)
               const redata = typeof(cc.resultData) == 'string' ? cc.resultData : ''
-              merge[key].notify = `${title}: Ê§°Ü, ${cc.resultCode==3?`Ô­Òò: CookieÊ§Ğ§??`:`${redata||'Ô­Òò: Î´Öª ??'}`}`
+              merge[key].notify = `${title}: å¤±è´¥, ${cc.resultCode==3?`åŸå› : Cookieå¤±æ•ˆ??`:`${redata||'åŸå› : æœªçŸ¥ ??'}`}`
               merge[key].fail = 1;
             }
           }
@@ -1278,24 +1278,24 @@ function JingDongGetCash(s) {
             const cc = JSON.parse(data);
             const Details = LogDetails ? "response:\n" + data : '';
             if (cc.data.success && cc.data.result) {
-              console.log("\n" + "¾©¶«ÉÌ³Ç-ÏÖ½ğÇ©µ½³É¹¦ " + Details)
+              console.log("\n" + "äº¬ä¸œå•†åŸ-ç°é‡‘ç­¾åˆ°æˆåŠŸ " + Details)
               merge.JDGetCash.success = 1
               merge.JDGetCash.Money = cc.data.result.signCash || 0
-              merge.JDGetCash.notify = `¾©¶«ÉÌ³Ç-ÏÖ½ğ: ³É¹¦, Ã÷Ï¸: ${cc.data.result.signCash||`ÎŞ`}ÏÖ½ğ ??`
+              merge.JDGetCash.notify = `äº¬ä¸œå•†åŸ-ç°é‡‘: æˆåŠŸ, æ˜ç»†: ${cc.data.result.signCash||`æ— `}ç°é‡‘ ??`
             } else {
-              console.log("\n" + "¾©¶«ÉÌ³Ç-ÏÖ½ğÇ©µ½Ê§°Ü " + Details)
+              console.log("\n" + "äº¬ä¸œå•†åŸ-ç°é‡‘ç­¾åˆ°å¤±è´¥ " + Details)
               merge.JDGetCash.fail = 1
-              if (data.match(/\"bizCode\":201|ÒÑ¾­Ç©¹ı/)) {
-                merge.JDGetCash.notify = "¾©¶«ÉÌ³Ç-ÏÖ½ğ: Ê§°Ü, Ô­Òò: ÒÑÇ©¹ı ??"
-              } else if (data.match(/\"code\":300|ÍË³öµÇÂ¼/)) {
-                merge.JDGetCash.notify = "¾©¶«ÉÌ³Ç-ÏÖ½ğ: Ê§°Ü, Ô­Òò: CookieÊ§Ğ§??"
+              if (data.match(/\"bizCode\":201|å·²ç»ç­¾è¿‡/)) {
+                merge.JDGetCash.notify = "äº¬ä¸œå•†åŸ-ç°é‡‘: å¤±è´¥, åŸå› : å·²ç­¾è¿‡ ??"
+              } else if (data.match(/\"code\":300|é€€å‡ºç™»å½•/)) {
+                merge.JDGetCash.notify = "äº¬ä¸œå•†åŸ-ç°é‡‘: å¤±è´¥, åŸå› : Cookieå¤±æ•ˆ??"
               } else {
-                merge.JDGetCash.notify = "¾©¶«ÉÌ³Ç-ÏÖ½ğ: Ê§°Ü, Ô­Òò: Î´Öª ??"
+                merge.JDGetCash.notify = "äº¬ä¸œå•†åŸ-ç°é‡‘: å¤±è´¥, åŸå› : æœªçŸ¥ ??"
               }
             }
           }
         } catch (eor) {
-          $nobyda.AnError("¾©¶«ÉÌ³Ç-ÏÖ½ğ", "JDGetCash", eor, response, data)
+          $nobyda.AnError("äº¬ä¸œå•†åŸ-ç°é‡‘", "JDGetCash", eor, response, data)
         } finally {
           resolve()
         }
@@ -1322,19 +1322,19 @@ function JingDongStore(s) {
           const cc = JSON.parse(data);
           const Details = LogDetails ? "response:\n" + data : '';
           if (cc.data && cc.data.success === true && cc.data.bizCode === 0) {
-            console.log(`\n¾©¶«ÉÌ³Ç-³¬ÊĞÇ©µ½³É¹¦ ${Details}`)
+            console.log(`\näº¬ä¸œå•†åŸ-è¶…å¸‚ç­¾åˆ°æˆåŠŸ ${Details}`)
             merge.JDGStore.success = 1
             merge.JDGStore.bean = cc.data.result.jdBeanCount || 0
-            merge.JDGStore.notify = `¾©¶«ÉÌ³Ç-³¬ÊĞ: ³É¹¦, Ã÷Ï¸: ${merge.JDGStore.bean||`ÎŞ`}¾©¶¹ ??`
+            merge.JDGStore.notify = `äº¬ä¸œå•†åŸ-è¶…å¸‚: æˆåŠŸ, æ˜ç»†: ${merge.JDGStore.bean||`æ— `}äº¬è±† ??`
           } else {
             if (!cc.data) cc.data = {}
-            console.log(`\n¾©¶«ÉÌ³Ç-³¬ÊĞÇ©µ½Ê§°Ü ${Details}`)
-            const tp = cc.data.bizCode == 811 ? `ÒÑÇ©¹ı` : cc.data.bizCode == 300 ? `CookieÊ§Ğ§` : `${cc.data.bizMsg||`Î´Öª`}`
-            merge.JDGStore.notify = `¾©¶«ÉÌ³Ç-³¬ÊĞ: Ê§°Ü, Ô­Òò: ${tp}${cc.data.bizCode==300?`??`:` ??`}`
+            console.log(`\näº¬ä¸œå•†åŸ-è¶…å¸‚ç­¾åˆ°å¤±è´¥ ${Details}`)
+            const tp = cc.data.bizCode == 811 ? `å·²ç­¾è¿‡` : cc.data.bizCode == 300 ? `Cookieå¤±æ•ˆ` : `${cc.data.bizMsg||`æœªçŸ¥`}`
+            merge.JDGStore.notify = `äº¬ä¸œå•†åŸ-è¶…å¸‚: å¤±è´¥, åŸå› : ${tp}${cc.data.bizCode==300?`??`:` ??`}`
             merge.JDGStore.fail = 1
           }
         } catch (eor) {
-          $nobyda.AnError("¾©¶«ÉÌ³Ç-³¬ÊĞ", "JDGStore", eor, response, data)
+          $nobyda.AnError("äº¬ä¸œå•†åŸ-è¶…å¸‚", "JDGStore", eor, response, data)
         } finally {
           resolve()
         }
@@ -1344,7 +1344,7 @@ function JingDongStore(s) {
   });
 }
 
-function JDSecKilling(s) { //ÁìÈ¯ÖĞĞÄ
+function JDSecKilling(s) { //é¢†åˆ¸ä¸­å¿ƒ
   merge.JDSecKill = {};
   return new Promise((resolve, reject) => {
     if (disable("JDSecKill")) return reject();
@@ -1362,21 +1362,21 @@ function JDSecKilling(s) { //ÁìÈ¯ÖĞĞÄ
           const Details = LogDetails ? "response:\n" + data : '';
           const cc = JSON.parse(data);
           if (cc.code == 203 || cc.code == 3 || cc.code == 101) {
-            merge.JDSecKill.notify = `¾©¶«ÃëÉ±-ºì°ü: Ê§°Ü, Ô­Òò: CookieÊ§Ğ§??`;
+            merge.JDSecKill.notify = `äº¬ä¸œç§’æ€-çº¢åŒ…: å¤±è´¥, åŸå› : Cookieå¤±æ•ˆ??`;
           } else if (cc.result && cc.result.projectId && cc.result.taskId) {
-            console.log(`\n¾©¶«ÃëÉ±-ºì°ü²éÑ¯³É¹¦ ${Details}`)
+            console.log(`\näº¬ä¸œç§’æ€-çº¢åŒ…æŸ¥è¯¢æˆåŠŸ ${Details}`)
             return resolve({
               projectId: cc.result.projectId,
               taskId: cc.result.taskId
             })
           } else {
-            merge.JDSecKill.notify = `¾©¶«ÃëÉ±-ºì°ü: Ê§°Ü, ÔİÎŞÓĞĞ§»î¶¯ ??`;
+            merge.JDSecKill.notify = `äº¬ä¸œç§’æ€-çº¢åŒ…: å¤±è´¥, æš‚æ— æœ‰æ•ˆæ´»åŠ¨ ??`;
           }
           merge.JDSecKill.fail = 1;
-          console.log(`\n¾©¶«ÃëÉ±-ºì°ü²éÑ¯Ê§°Ü ${Details}`)
+          console.log(`\näº¬ä¸œç§’æ€-çº¢åŒ…æŸ¥è¯¢å¤±è´¥ ${Details}`)
           reject()
         } catch (eor) {
-          $nobyda.AnError("¾©¶«ÃëÉ±-²éÑ¯", "JDSecKill", eor, response, data)
+          $nobyda.AnError("äº¬ä¸œç§’æ€-æŸ¥è¯¢", "JDSecKill", eor, response, data)
           reject()
         }
       })
@@ -1397,18 +1397,18 @@ function JDSecKilling(s) { //ÁìÈ¯ÖĞĞÄ
           const Details = LogDetails ? "response:\n" + data : '';
           const cc = JSON.parse(data);
           if (cc.msg == 'success' && cc.subCode == 0) {
-            console.log(`\n¾©¶«ÃëÉ±-ºì°üÇ©µ½³É¹¦ ${Details}`);
+            console.log(`\näº¬ä¸œç§’æ€-çº¢åŒ…ç­¾åˆ°æˆåŠŸ ${Details}`);
             const qt = data.match(/"discount":(\d.*?),/);
             merge.JDSecKill.success = 1;
             merge.JDSecKill.Cash = qt ? qt[1] : 0;
-            merge.JDSecKill.notify = `¾©¶«ÃëÉ±-ºì°ü: ³É¹¦, Ã÷Ï¸: ${merge.JDSecKill.Cash||`ÎŞ`}ºì°ü ??`;
+            merge.JDSecKill.notify = `äº¬ä¸œç§’æ€-çº¢åŒ…: æˆåŠŸ, æ˜ç»†: ${merge.JDSecKill.Cash||`æ— `}çº¢åŒ… ??`;
           } else {
-            console.log(`\n¾©¶«ÃëÉ±-ºì°üÇ©µ½Ê§°Ü ${Details}`);
+            console.log(`\näº¬ä¸œç§’æ€-çº¢åŒ…ç­¾åˆ°å¤±è´¥ ${Details}`);
             merge.JDSecKill.fail = 1;
-            merge.JDSecKill.notify = `¾©¶«ÃëÉ±-ºì°ü: Ê§°Ü, ${cc.subCode==103?`Ô­Òò: ÒÑÁìÈ¡`:cc.msg?cc.msg:`Ô­Òò: Î´Öª`} ??`;
+            merge.JDSecKill.notify = `äº¬ä¸œç§’æ€-çº¢åŒ…: å¤±è´¥, ${cc.subCode==103?`åŸå› : å·²é¢†å–`:cc.msg?cc.msg:`åŸå› : æœªçŸ¥`} ??`;
           }
         } catch (eor) {
-          $nobyda.AnError("¾©¶«ÃëÉ±-ÁìÈ¡", "JDSecKill", eor, response, data);
+          $nobyda.AnError("äº¬ä¸œç§’æ€-é¢†å–", "JDSecKill", eor, response, data);
         } finally {
           resolve();
         }
@@ -1432,18 +1432,18 @@ function JingDongBuyCar(s, ActId) {
         try {
           if (error) throw new Error(error);
           const Details = LogDetails ? "response:\n" + data : '';
-          console.log(`\n¾©¶«Æû³µ-¼ì²éÇ©µ½×´Ì¬ ${Details}`)
+          console.log(`\näº¬ä¸œæ±½è½¦-æ£€æŸ¥ç­¾åˆ°çŠ¶æ€ ${Details}`)
           const cc = JSON.parse(data);
           if (cc.status && cc.data && cc.data.firstLoginStatus) {
             resolve()
           } else {
-            const qt = cc.status && cc.data && cc.data.firstLoginStatus === false ? `Ô­Òò: ÒÑÇ©¹ı` : cc.error && cc.error.code == 2000 ? `Ô­Òò: CookieÊ§Ğ§` : cc.error && cc.error.msg ? cc.error.msg : `Ô­Òò: Î´Öª`;
-            merge.JDBuyCar.notify = `¾©¶«ÉÌ³Ç-Æû³µ: Ê§°Ü, ${qt}${cc.error&&cc.error.code==2000?`??`:` ??`}`
+            const qt = cc.status && cc.data && cc.data.firstLoginStatus === false ? `åŸå› : å·²ç­¾è¿‡` : cc.error && cc.error.code == 2000 ? `åŸå› : Cookieå¤±æ•ˆ` : cc.error && cc.error.msg ? cc.error.msg : `åŸå› : æœªçŸ¥`;
+            merge.JDBuyCar.notify = `äº¬ä¸œå•†åŸ-æ±½è½¦: å¤±è´¥, ${qt}${cc.error&&cc.error.code==2000?`??`:` ??`}`
             merge.JDBuyCar.fail = 1;
             reject()
           }
         } catch (eor) {
-          $nobyda.AnError("¾©¶«Æû³µ-×´Ì¬", "JDBuyCar", eor, response, data)
+          $nobyda.AnError("äº¬ä¸œæ±½è½¦-çŠ¶æ€", "JDBuyCar", eor, response, data)
           reject()
         }
       })
@@ -1463,17 +1463,17 @@ function JingDongBuyCar(s, ActId) {
           const Details = LogDetails ? "response:\n" + data : '';
           const cc = JSON.parse(data);
           if (cc.status === true) {
-            console.log(`\n¾©¶«ÉÌ³Ç-Æû³µÇ©µ½³É¹¦ ${Details}`);
+            console.log(`\näº¬ä¸œå•†åŸ-æ±½è½¦ç­¾åˆ°æˆåŠŸ ${Details}`);
             merge.JDBuyCar.success = 1;
             merge.JDBuyCar.bean = cc.data && cc.data.beanNum ? cc.data.beanNum : 0
-            merge.JDBuyCar.notify = `¾©¶«ÉÌ³Ç-Æû³µ: ³É¹¦, Ã÷Ï¸: ${merge.JDBuyCar.bean||`ÎŞ`}¾©¶¹ ??`;
+            merge.JDBuyCar.notify = `äº¬ä¸œå•†åŸ-æ±½è½¦: æˆåŠŸ, æ˜ç»†: ${merge.JDBuyCar.bean||`æ— `}äº¬è±† ??`;
           } else {
-            console.log(`\n¾©¶«ÉÌ³Ç-Æû³µÇ©µ½Ê§°Ü ${Details}`);
+            console.log(`\näº¬ä¸œå•†åŸ-æ±½è½¦ç­¾åˆ°å¤±è´¥ ${Details}`);
             merge.JDBuyCar.fail = 1;
-            merge.JDBuyCar.notify = `¾©¶«ÉÌ³Ç-Æû³µ: Ê§°Ü, ${cc.error&&cc.error.msg?cc.error.msg:`Ô­Òò: Î´Öª`} ??`;
+            merge.JDBuyCar.notify = `äº¬ä¸œå•†åŸ-æ±½è½¦: å¤±è´¥, ${cc.error&&cc.error.msg?cc.error.msg:`åŸå› : æœªçŸ¥`} ??`;
           }
         } catch (eor) {
-          $nobyda.AnError("¾©¶«Æû³µ-Ç©µ½", "JDBuyCar", eor, response, data);
+          $nobyda.AnError("äº¬ä¸œæ±½è½¦-ç­¾åˆ°", "JDBuyCar", eor, response, data);
         } finally {
           resolve();
         }
@@ -1496,14 +1496,14 @@ function TotalSteel() {
         if (error) throw new Error(error);
         const Details = LogDetails ? "response:\n" + data : '';
         if (data.match(/(\"gbBalance\":\d+)/)) {
-          console.log("\n" + "¾©¶«-×Ü¸ÖéG²éÑ¯³É¹¦ " + Details)
+          console.log("\n" + "äº¬ä¸œ-æ€»é’¢é•šæŸ¥è¯¢æˆåŠŸ " + Details)
           const cc = JSON.parse(data)
           merge.TotalSteel.TSteel = cc.gbBalance
         } else {
-          console.log("\n" + "¾©¶«-×Ü¸ÖéG²éÑ¯Ê§°Ü " + Details)
+          console.log("\n" + "äº¬ä¸œ-æ€»é’¢é•šæŸ¥è¯¢å¤±è´¥ " + Details)
         }
       } catch (eor) {
-        $nobyda.AnError("ÕË»§¸ÖéG-²éÑ¯", "TotalSteel", eor, response, data)
+        $nobyda.AnError("è´¦æˆ·é’¢é•š-æŸ¥è¯¢", "TotalSteel", eor, response, data)
       } finally {
         resolve()
       }
@@ -1530,13 +1530,13 @@ function TotalBean() {
           merge.TotalBean.nickname = cc.data.userInfo.baseInfo.nickname || ""
           merge.TotalBean.Qbear = cc.data.assetInfo.beanNum || 0
           $nobyda.headUrl = cc.data.userInfo.baseInfo.headImageUrl || ""
-          console.log(`\n¾©¶«-×Ü¾©¶¹²éÑ¯³É¹¦ ${Details}`)
+          console.log(`\näº¬ä¸œ-æ€»äº¬è±†æŸ¥è¯¢æˆåŠŸ ${Details}`)
         } else {
-          merge.TotalBean.nickname = cc.retcode == 1001 ? "CookieÊ§Ğ§ ??" : "";
-          console.log(`\n¾©¶«-×Ü¾©¶¹²éÑ¯Ê§°Ü ${Details}`)
+          merge.TotalBean.nickname = cc.retcode == 1001 ? "Cookieå¤±æ•ˆ ??" : "";
+          console.log(`\näº¬ä¸œ-æ€»äº¬è±†æŸ¥è¯¢å¤±è´¥ ${Details}`)
         }
       } catch (eor) {
-        $nobyda.AnError("ÕË»§¾©¶¹-²éÑ¯", "TotalBean", eor, response, data)
+        $nobyda.AnError("è´¦æˆ·äº¬è±†-æŸ¥è¯¢", "TotalBean", eor, response, data)
       } finally {
         resolve()
       }
@@ -1560,14 +1560,14 @@ function TotalCash() {
         if (error) throw new Error(error);
         const Details = LogDetails ? "response:\n" + data : '';
         if (data.match(/(\"totalBalance\":\d+)/)) {
-          console.log("\n" + "¾©¶«-×Üºì°ü²éÑ¯³É¹¦ " + Details)
+          console.log("\n" + "äº¬ä¸œ-æ€»çº¢åŒ…æŸ¥è¯¢æˆåŠŸ " + Details)
           const cc = JSON.parse(data)
           merge.TotalCash.TCash = cc.totalBalance
         } else {
-          console.log("\n" + "¾©¶«-×Üºì°ü²éÑ¯Ê§°Ü " + Details)
+          console.log("\n" + "äº¬ä¸œ-æ€»çº¢åŒ…æŸ¥è¯¢å¤±è´¥ " + Details)
         }
       } catch (eor) {
-        $nobyda.AnError("ÕË»§ºì°ü-²éÑ¯", "TotalCash", eor, response, data)
+        $nobyda.AnError("è´¦æˆ·çº¢åŒ…-æŸ¥è¯¢", "TotalCash", eor, response, data)
       } finally {
         resolve()
       }
@@ -1592,13 +1592,13 @@ function TotalSubsidy() {
         const cc = JSON.parse(data)
         const Details = LogDetails ? "response:\n" + data : '';
         if (cc.resultCode == 0 && cc.resultData && cc.resultData.data) {
-          console.log("\n¾©¶«-×Ü½ğÌù²éÑ¯³É¹¦ " + Details)
+          console.log("\näº¬ä¸œ-æ€»é‡‘è´´æŸ¥è¯¢æˆåŠŸ " + Details)
           merge.TotalSubsidy.TSubsidy = cc.resultData.data.balance || 0
         } else {
-          console.log("\n¾©¶«-×Ü½ğÌù²éÑ¯Ê§°Ü " + Details)
+          console.log("\näº¬ä¸œ-æ€»é‡‘è´´æŸ¥è¯¢å¤±è´¥ " + Details)
         }
       } catch (eor) {
-        $nobyda.AnError("ÕË»§½ğÌù-²éÑ¯", "TotalSubsidy", eor, response, data)
+        $nobyda.AnError("è´¦æˆ·é‡‘è´´-æŸ¥è¯¢", "TotalSubsidy", eor, response, data)
       } finally {
         resolve()
       }
@@ -1622,13 +1622,13 @@ function TotalMoney() {
         const cc = JSON.parse(data)
         const Details = LogDetails ? "response:\n" + data : '';
         if (cc.code == 0 && cc.data && cc.data.bizCode == 0 && cc.data.result) {
-          console.log("\n¾©¶«-×ÜÏÖ½ğ²éÑ¯³É¹¦ " + Details)
+          console.log("\näº¬ä¸œ-æ€»ç°é‡‘æŸ¥è¯¢æˆåŠŸ " + Details)
           merge.TotalMoney.TMoney = cc.data.result.totalMoney || 0
         } else {
-          console.log("\n¾©¶«-×ÜÏÖ½ğ²éÑ¯Ê§°Ü " + Details)
+          console.log("\näº¬ä¸œ-æ€»ç°é‡‘æŸ¥è¯¢å¤±è´¥ " + Details)
         }
       } catch (eor) {
-        $nobyda.AnError("ÕË»§ÏÖ½ğ-²éÑ¯", "TotalMoney", eor, response, data)
+        $nobyda.AnError("è´¦æˆ·ç°é‡‘-æŸ¥è¯¢", "TotalMoney", eor, response, data)
       } finally {
         resolve()
       }
@@ -1645,15 +1645,15 @@ function disable(Val, name, way) {
     if (read) {
       if (read.indexOf(Val) == -1) {
         var Crash = $nobyda.write(`${read},${Val}`, "JD_DailyBonusDisables")
-        console.log(`\n${name}-´¥·¢×Ô¶¯½ûÓÃ ??`)
-        merge[Val].notify = `${name}: ±ÀÀ£, ´¥·¢×Ô¶¯½ûÓÃ ??`
+        console.log(`\n${name}-è§¦å‘è‡ªåŠ¨ç¦ç”¨ ??`)
+        merge[Val].notify = `${name}: å´©æºƒ, è§¦å‘è‡ªåŠ¨ç¦ç”¨ ??`
         merge[Val].error = 1
         $nobyda.disable = 1
       }
     } else {
       var Crash = $nobyda.write(Val, "JD_DailyBonusDisables")
-      console.log(`\n${name}-´¥·¢×Ô¶¯½ûÓÃ ??`)
-      merge[Val].notify = `${name}: ±ÀÀ£, ´¥·¢×Ô¶¯½ûÓÃ ??`
+      console.log(`\n${name}-è§¦å‘è‡ªåŠ¨ç¦ç”¨ ??`)
+      merge[Val].notify = `${name}: å´©æºƒ, è§¦å‘è‡ªåŠ¨ç¦ç”¨ ??`
       merge[Val].error = 1
       $nobyda.disable = 1
     }
@@ -1673,12 +1673,12 @@ function disable(Val, name, way) {
 function Wait(readDelay, ini) {
   if (!readDelay || readDelay === '0') return 0
   if (typeof(readDelay) == 'string') {
-    var readDelay = readDelay.replace(/"|£¢|'|£§/g, ''); //prevent novice
+    var readDelay = readDelay.replace(/"|ï¼‚|'|ï¼‡/g, ''); //prevent novice
     if (readDelay.indexOf('-') == -1) return parseInt(readDelay) || 0;
     const raw = readDelay.split("-").map(Number);
     const plan = parseInt(Math.random() * (raw[1] - raw[0] + 1) + raw[0], 10);
-    if (ini) console.log(`\n³õÊ¼»¯Ëæ»úÑÓ³Ù: ×îĞ¡${raw[0]/1000}Ãë, ×î´ó${raw[1]/1000}Ãë`);
-    // else console.log(`\nÔ¤¼ÆµÈ´ı: ${(plan / 1000).toFixed(2)}Ãë`);
+    if (ini) console.log(`\nåˆå§‹åŒ–éšæœºå»¶è¿Ÿ: æœ€å°${raw[0]/1000}ç§’, æœ€å¤§${raw[1]/1000}ç§’`);
+    // else console.log(`\né¢„è®¡ç­‰å¾…: ${(plan / 1000).toFixed(2)}ç§’`);
     return ini ? readDelay : plan
   } else if (typeof(readDelay) == 'number') {
     return readDelay > 0 ? readDelay : 0
@@ -1689,16 +1689,16 @@ function GetCookie() {
   try {
     if ($request.method != 'OPTIONS' && $request.headers && $request.url !== 'http://www.apple.com/') {
       let acObj = {};
-      // ÌáÈ¡ckÊı¾İ
+      // æå–ckæ•°æ®
       let CV = ($request.headers['Cookie'] || $request.headers['cookie'] || '').replace(/ /g, '');
       let ckItems = CV.split(';').filter(s => /^(pt_key|pt_pin)=.+/.test(s)).sort();
       if (ckItems.length == 2) {
         acObj.cookie = ckItems.join(';') + ';';
         acObj.userName = decodeURIComponent(acObj.cookie.match(/pt_pin=(.+?);/)[1]);
       }
-      // ÎŞcookieÊı¾İ½øĞĞÌáÊ¾£¬ÓĞckÊı¾İ£¬ÕÒµ½ÕËºÅÎ»½øĞĞ´æ´¢
+      // æ— cookieæ•°æ®è¿›è¡Œæç¤ºï¼Œæœ‰ckæ•°æ®ï¼Œæ‰¾åˆ°è´¦å·ä½è¿›è¡Œå­˜å‚¨
       if (!acObj.cookie) {
-        $nobyda.notify("Ğ´Èë¾©¶«CookieÊ§°Ü", "", "Çë²é¿´½Å±¾ÄÚËµÃ÷, µÇÂ¼ÍøÒ³»ñÈ¡ ??")
+        $nobyda.notify("å†™å…¥äº¬ä¸œCookieå¤±è´¥", "", "è¯·æŸ¥çœ‹è„šæœ¬å†…è¯´æ˜, ç™»å½•ç½‘é¡µè·å– ??")
         return
       } else {
         const allCk = [$nobyda.read('CookieJD'), $nobyda.read('CookieJD2')];
@@ -1707,7 +1707,7 @@ function GetCookie() {
         try {
           oldCks = (ocks && JSON.parse(ocks)) || [];
         } catch (e) {
-          console.log(`Ğ´Èë¾©¶«CookieÊ±×ª»»¾©¶«À©Õ¹ÕËºÅÊı¾İCookiesJDÒì³££¬À©Õ¹ÕËºÅĞÅÏ¢£º\n${ocks}`)
+          console.log(`å†™å…¥äº¬ä¸œCookieæ—¶è½¬æ¢äº¬ä¸œæ‰©å±•è´¦å·æ•°æ®CookiesJDå¼‚å¸¸ï¼Œæ‰©å±•è´¦å·ä¿¡æ¯ï¼š\n${ocks}`)
           oldCks = [];
         }
         oldCks.forEach(item => allCk.push(item.cookie));
@@ -1725,52 +1725,52 @@ function GetCookie() {
               }
               WT = $nobyda.write(JSON.stringify(oldCks, null, 2), 'CookiesJD');
             }
-            $nobyda.notify(`ÓÃ»§Ãû: ${acObj.userName}`, ``, `${status==2?`¸üĞÂ`:`Ğ´Èë`}¾©¶« [ÕËºÅ${seatNo+1}] Cookie${WT?`³É¹¦ ??`:`Ê§°Ü ??`}`)
+            $nobyda.notify(`ç”¨æˆ·å: ${acObj.userName}`, ``, `${status==2?`æ›´æ–°`:`å†™å…¥`}äº¬ä¸œ [è´¦å·${seatNo+1}] Cookie${WT?`æˆåŠŸ ??`:`å¤±è´¥ ??`}`)
           } else {
-            console.log(`\nÓÃ»§Ãû: ${acObj.userName}\nÓëÀúÊ·¾©¶« [ÕËºÅ${seatNo+1}] CookieÏàÍ¬, Ìø¹ıĞ´Èë ??`)
+            console.log(`\nç”¨æˆ·å: ${acObj.userName}\nä¸å†å²äº¬ä¸œ [è´¦å·${seatNo+1}] Cookieç›¸åŒ, è·³è¿‡å†™å…¥ ??`)
           }
         }
       }
     } else if ($request.url === 'http://www.apple.com/') {
-      $nobyda.notify("¾©¶«Ç©µ½", "", "ÀàĞÍ´íÎó, ÊÖ¶¯ÔËĞĞÇëÑ¡ÔñÉÏÏÂÎÄ»·¾³ÎªCron ??");
+      $nobyda.notify("äº¬ä¸œç­¾åˆ°", "", "ç±»å‹é”™è¯¯, æ‰‹åŠ¨è¿è¡Œè¯·é€‰æ‹©ä¸Šä¸‹æ–‡ç¯å¢ƒä¸ºCron ??");
     } else {
-      $nobyda.notify("¾©¶«Ç©µ½", "Ğ´ÈëCookieÊ§°Ü", "Çë¼ì²éÆ¥ÅäURL»òÅäÖÃÄÚ½Å±¾ÀàĞÍ ??");
+      $nobyda.notify("äº¬ä¸œç­¾åˆ°", "å†™å…¥Cookieå¤±è´¥", "è¯·æ£€æŸ¥åŒ¹é…URLæˆ–é…ç½®å†…è„šæœ¬ç±»å‹ ??");
     }
   } catch (eor) {
     $nobyda.write("", "CookieJD")
     $nobyda.write("", "CookieJD2")
     $nobyda.write("", "CookiesJD")
-    $nobyda.notify("Ğ´Èë¾©¶«CookieÊ§°Ü", "", 'ÒÑ³¢ÊÔÇå¿ÕÀúÊ·Cookie, ÇëÖØÊÔ ??')
-    console.log(`\nĞ´Èë¾©¶«Cookie³öÏÖ´íÎó ??\n${JSON.stringify(eor)}\n\n${eor}\n\n${JSON.stringify($request.headers)}\n`)
+    $nobyda.notify("å†™å…¥äº¬ä¸œCookieå¤±è´¥", "", 'å·²å°è¯•æ¸…ç©ºå†å²Cookie, è¯·é‡è¯• ??')
+    console.log(`\nå†™å…¥äº¬ä¸œCookieå‡ºç°é”™è¯¯ ??\n${JSON.stringify(eor)}\n\n${eor}\n\n${JSON.stringify($request.headers)}\n`)
   } finally {
     $nobyda.done()
   }
 }
-// »ñÈ¡ĞÂck´æ·ÅÎ»ÖÃ
+// è·å–æ–°ckå­˜æ”¾ä½ç½®
 function chooseSeatNo(newCk, allCk, reg) {
-  // status-»ñÈ¡²Ù×÷×´Ì¬-0:Òì³£¡¢1-ĞÂÔö¡¢2-¸üĞÂ¡¢-1-ÏàÍ¬ seatNo-´æ´¢Î»ÖÃ£¬Ä¬ÈÏÌí¼Óµ½×îºóÃæ
+  // status-è·å–æ“ä½œçŠ¶æ€-0:å¼‚å¸¸ã€1-æ–°å¢ã€2-æ›´æ–°ã€-1-ç›¸åŒ seatNo-å­˜å‚¨ä½ç½®ï¼Œé»˜è®¤æ·»åŠ åˆ°æœ€åé¢
   let [status, seatNo] = [1, allCk.length];
   try {
     let newId = ((newCk || '').match(reg) || ['', ''])[1];
     for (let i = 0, len = allCk.length; i < len; i++) {
       let oldId = ((allCk[i] || '').match(reg) || ['', ''])[1];
       if (oldId) {
-        // ÕËºÅÎ»Êı¾İ´æÔÚ£¬ÅĞ¶ÏÊÇ·ñÎªµ±Ç°ÕËºÅµÄÊı¾İ£¬²»ÊÇÔòÌø¹ı£¬·ñÔòÉèÖÃÊı¾İ²¢Ìø³öÑ­»·
+        // è´¦å·ä½æ•°æ®å­˜åœ¨ï¼Œåˆ¤æ–­æ˜¯å¦ä¸ºå½“å‰è´¦å·çš„æ•°æ®ï¼Œä¸æ˜¯åˆ™è·³è¿‡ï¼Œå¦åˆ™è®¾ç½®æ•°æ®å¹¶è·³å‡ºå¾ªç¯
         if (oldId == newId) {
           seatNo = i;
           status = newCk == allCk[i] ? -1 : 2;
           break;
         }
       } else if (seatNo == len) {
-        // ¾ÉcookieÎŞĞ§ÇÒÔÚ³õÊ¼ÕËºÅÎ»£¬ÏÈ±ê¼ÇĞÂcookieÊı¾İ´æ´¢ÓÚ´ËÎ»ÖÃ
+        // æ—§cookieæ— æ•ˆä¸”åœ¨åˆå§‹è´¦å·ä½ï¼Œå…ˆæ ‡è®°æ–°cookieæ•°æ®å­˜å‚¨äºæ­¤ä½ç½®
         seatNo = i;
         status = 1;
       }
     }
   } catch (e) {
-    // Òì³£Ê±£¬²»²Ù×÷cookie
+    // å¼‚å¸¸æ—¶ï¼Œä¸æ“ä½œcookie
     status = 0;
-    console.log(`\n²éÑ¯ÕËºÅ´æ´¢Î»ÖÃÒì³£ ??\n${JSON.stringify(e)}\n\n${e}\n`)
+    console.log(`\næŸ¥è¯¢è´¦å·å­˜å‚¨ä½ç½®å¼‚å¸¸ ??\n${JSON.stringify(e)}\n\n${e}\n`)
   }
   return [status, seatNo];
 }
@@ -1853,7 +1853,7 @@ function nobyda() {
         if (!value) delete dataValue[key];
         return node.fs.writeFileSync(NodeSet, JSON.stringify(dataValue));
       } catch (er) {
-        return AnError('Node.js³Ö¾Ã»¯Ğ´Èë', null, er);
+        return AnError('Node.jsæŒä¹…åŒ–å†™å…¥', null, er);
       }
     }
     if (isJSBox) {
@@ -1875,7 +1875,7 @@ function nobyda() {
         const dataValue = JSON.parse(node.fs.readFileSync(NodeSet))
         return dataValue[key]
       } catch (er) {
-        return AnError('Node.js³Ö¾Ã»¯¶ÁÈ¡', null, er)
+        return AnError('Node.jsæŒä¹…åŒ–è¯»å–', null, er)
       }
     }
     if (isJSBox) {
@@ -1977,17 +1977,17 @@ function nobyda() {
   const AnError = (name, keyname, er, resp, body) => {
     if (typeof(merge) != "undefined" && keyname) {
       if (!merge[keyname].notify) {
-        merge[keyname].notify = `${name}: Òì³£, ÒÑÊä³öÈÕÖ¾ ??`
+        merge[keyname].notify = `${name}: å¼‚å¸¸, å·²è¾“å‡ºæ—¥å¿— ??`
       } else {
-        merge[keyname].notify += `\n${name}: Òì³£, ÒÑÊä³öÈÕÖ¾ ?? (2)`
+        merge[keyname].notify += `\n${name}: å¼‚å¸¸, å·²è¾“å‡ºæ—¥å¿— ?? (2)`
       }
       merge[keyname].error = 1
     }
-    return console.log(`\n??${name}·¢Éú´íÎó\n??Ãû³Æ: ${er.name}\n??ÃèÊö: ${er.message}${JSON.stringify(er).match(/\"line\"/)?`\n??ĞĞÁĞ: ${JSON.stringify(er)}`:``}${resp&&resp.status?`\n??×´Ì¬: ${resp.status}`:``}${body?`\n??ÏìÓ¦: ${resp&&resp.status!=503?body:`Omit.`}`:``}`)
+    return console.log(`\n??${name}å‘ç”Ÿé”™è¯¯\n??åç§°: ${er.name}\n??æè¿°: ${er.message}${JSON.stringify(er).match(/\"line\"/)?`\n??è¡Œåˆ—: ${JSON.stringify(er)}`:``}${resp&&resp.status?`\n??çŠ¶æ€: ${resp.status}`:``}${body?`\n??å“åº”: ${resp&&resp.status!=503?body:`Omit.`}`:``}`)
   }
   const time = () => {
     const end = ((Date.now() - start) / 1000).toFixed(2)
-    return console.log('\nÇ©µ½ÓÃÊ±: ' + end + ' Ãë')
+    return console.log('\nç­¾åˆ°ç”¨æ—¶: ' + end + ' ç§’')
   }
   const done = (value = {}) => {
     if (isQuanX) return $done(value)
